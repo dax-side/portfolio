@@ -34,12 +34,12 @@ export default function Contact() {
           <div style={styles.left}>
             <span className="type-label" style={styles.index}>04 / CONTACT</span>
             <h2 className="type-h2" style={styles.heading}>
-              Looking for fullstack<br />
+              Looking for backend<br />
               engineering roles.<br />
               <span style={styles.accentText}>Say hello.</span>
             </h2>
             <p className="type-body-md" style={styles.body}>
-              Open to fullstack engineering positions.
+              Open to backend engineering positions.
               Also happy to talk architecture, tooling,
               or open-source work.
             </p>
