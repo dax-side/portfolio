@@ -1,4 +1,6 @@
 import { useForm, ValidationError } from '@formspree/react'
+import { motion } from 'framer-motion'
+import { fadeUp } from '../lib/transitions'
 
 const CONTACT_LINKS = [
   {
@@ -31,8 +33,14 @@ export default function Contact() {
         <div style={styles.layout}>
 
           {/* Left — header + links */}
-          <div style={styles.left}>
-            <span className="type-label" style={styles.index}>04 / CONTACT</span>
+          <motion.div 
+            style={styles.left}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+          >
+            <span className="type-label" style={styles.index}>05 / CONTACT</span>
             <h2 className="type-h2" style={styles.heading}>
               Looking for backend<br />
               engineering roles.<br />
@@ -61,10 +69,16 @@ export default function Contact() {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Right — form */}
-          <div style={styles.right}>
+          <motion.div 
+            style={styles.right}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+          >
             <div style={styles.formCard}>
               <span className="type-label" style={styles.formLabel}>SEND A MESSAGE</span>
 
@@ -155,7 +169,7 @@ export default function Contact() {
                 )}
               </form>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>
