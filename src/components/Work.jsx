@@ -7,7 +7,7 @@ const packages = [
     name: '@dax-side/jwt-abstraction',
     tagline: 'JWT auth in 3 lines',
     description:
-      'Access and refresh tokens, Express middleware, typed error classes. 100% test coverage. Running in 3 production projects.',
+      'JWT auth in three lines. Access and refresh tokens, Express middleware, typed error classes. Running in three production projects.',
     links: {
       docs:   'https://dax-side.github.io/jwt-abstraction-site',
       npm:    'https://www.npmjs.com/package/@dax-side/jwt-abstraction',
@@ -19,7 +19,7 @@ const packages = [
     name: 'express-journey-mapper',
     tagline: 'Auto-generate OpenAPI docs',
     description:
-      'Points at your Express routes and writes the Swagger docs for you. No YAML files.',
+      'Point it at your Express routes. It writes the Swagger docs. No YAML files.',
     links: {
       npm: 'https://www.npmjs.com/package/express-journey-mapper',
     },
@@ -29,7 +29,7 @@ const packages = [
     name: 'error-telex',
     tagline: 'TypeScript error tracking SDK',
     description:
-      'Ships error reports to the Telex backend. Handles retries and filtering automatically. Co-built during HNG internship.',
+      'TypeScript SDK that ships error reports to the Telex backend. Handles retries and filtering automatically.',
     links: {
       npm: 'https://www.npmjs.com/package/error-telex',
     },
@@ -43,7 +43,7 @@ const projects = [
     name: 'CollabEdit',
     tagline: 'Real-time collaborative editor',
     description:
-      'Built a custom RGA-based CRDT from scratch. No Yjs, no Automerge. Tombstone retention handles late-arriving ops. A per-document operation queue fixes paste scrambling across clients.',
+      'Custom RGA-based CRDT, built from scratch. No Yjs, no Automerge. Tombstone retention handles late-arriving ops. A per-document operation queue fixes paste scrambling across clients.',
     tags: ['Node.js', 'TypeScript', 'WebSocket', 'PostgreSQL', 'Prisma', 'React'],
     accent: true,
     links: {
@@ -57,7 +57,7 @@ const projects = [
     name: 'E-commerce Microservices API',
     tagline: '48 → 716 req/sec',
     description:
-      'Took throughput from 48 to 716 req/sec. Redis caching, MongoDB connection pooling, and index fixes got it there. Load tested with k6 at 200 concurrent users.',
+      'Throughput went from 48 to 716 req/sec. Redis caching, MongoDB connection pooling, and targeted index fixes got it there. Load tested with k6 at 200 concurrent users.',
     tags: ['Node.js', 'TypeScript', 'MongoDB', 'Redis', 'Docker', 'Nginx', 'Prometheus'],
     accent: false,
     links: {
@@ -70,7 +70,7 @@ const projects = [
     name: 'CrossPay',
     tagline: 'Cross-border remittance on-chain',
     description:
-      'GBP in, USDC out on Polygon. Stripe handles the fiat side. WebSocket keeps transaction state live. Flat 0.5% fee.',
+      'Personal project. GBP in, USDC out on Polygon. Stripe handles the fiat side. WebSocket keeps transaction state live. Built to understand cross-border payment infrastructure end to end.',
     tags: ['Node.js', 'TypeScript', 'PostgreSQL', 'Stripe', 'Polygon', 'Socket.io'],
     accent: false,
     links: {
@@ -82,14 +82,12 @@ const projects = [
     id: 'proj-hoh',
     index: '04',
     name: 'Heart of House',
-    tagline: 'B2B marketplace — client work',
+    tagline: 'B2B marketplace',
     description:
-      'Backend for a B2B marketplace in production. Liquor stores, vendors, real-time messaging with Socket.io, inventory, an automated rewards system, and AWS S3 for invoices.',
+      'Backend for a B2B marketplace. Liquor stores, vendors, real-time messaging via Socket.io, inventory management, automated rewards system, and AWS S3 for invoice storage.',
     tags: ['Node.js', 'TypeScript', 'Express', 'MongoDB', 'Socket.io', 'AWS S3'],
     accent: false,
-    links: {
-      live: 'https://platform.heartofhouse.io/',
-    },
+    links: {},
   },
 ]
 
@@ -157,7 +155,7 @@ export default function Work() {
         >
           <h2 className="type-h2" style={styles.heading}>Projects</h2>
           <p className="type-body-md" style={styles.subtext}>
-            APIs, databases, real-time systems, deployed and running.
+            APIs, databases, real-time systems. Deployed and running.
           </p>
         </motion.div>
 
