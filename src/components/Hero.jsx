@@ -21,16 +21,14 @@ export default function Hero() {
           <div style={styles.roleBlock} className="animate-in" data-delay="1">
             <span className="type-label" style={styles.label}>ROLE</span>
             <p className="type-h3" style={styles.role}>
-              Fullstack Engineer
+              Backend Engineer
             </p>
           </div>
 
           <div style={styles.bioBlock} className="animate-in" data-delay="2">
             <span className="type-label" style={styles.label}>ABOUT</span>
             <p className="type-body-lg" style={styles.bio}>
-              I build end-to-end web applications.
-              Fluid UIs in React, robust APIs in Node.js, and production-ready deployments.
-              Three npm packages shipped. Used in production.
+              I build the systems behind the product. APIs, real-time infrastructure, distributed systems, and production deployments. Three npm packages in production.
             </p>
             <div style={styles.ctas}>
               <a
@@ -66,7 +64,7 @@ export default function Hero() {
           </div>
           <div style={styles.statusItem}>
             <span className="type-label" style={styles.statusLabel}>FOCUS</span>
-            <span className="type-label" style={{ color: '#F0EDE8' }}>FULLSTACK · REACT · NODE</span>
+            <span className="type-label" style={{ color: '#F0EDE8' }}>BACKEND · NODE.JS · DEVOPS</span>
           </div>
           <div style={styles.statusItem}>
             <span className="type-label" style={styles.statusLabel}>PACKAGES</span>
