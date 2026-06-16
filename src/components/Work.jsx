@@ -226,7 +226,6 @@ const styles = {
   heading:      { color: '#F0EDE8' },
   subtext:      { color: '#808080', lineHeight: 1.6 },
 
-  /* Packages */
   pkgList: { display: 'flex', flexDirection: 'column' },
   pkgItem: {
     display: 'flex',
@@ -244,7 +243,6 @@ const styles = {
   pkgLinks:   { display: 'flex', gap: '8px', alignItems: 'center', flexShrink: 0 },
   pkgLinkBtn: { fontSize: '0.7rem', padding: '8px 14px' },
 
-  /* Project grid */
   grid: {
     display: 'grid',
     gridTemplateColumns: 'repeat(2, 1fr)',
