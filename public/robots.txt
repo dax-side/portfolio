@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://damola.me/sitemap.xml
