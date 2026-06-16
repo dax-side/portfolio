@@ -64,7 +64,8 @@ export default function Nav() {
         </ul>
 
         <a
-          href="mailto:damolaadegbite77@gmail.com"
+          href="#contact"
+          onClick={e => handleClick(e, 'contact')}
           id="nav-cta"
           className="btn-ghost"
           style={{ fontSize: '0.75rem' }}
