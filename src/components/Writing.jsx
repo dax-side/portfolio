@@ -1,4 +1,5 @@
-import { useEffect, useRef } from 'react'
+import { motion } from 'framer-motion'
+import { fadeUp, staggerContainer } from '../lib/transitions'
 
 const posts = [
   {
@@ -39,67 +40,56 @@ const posts = [
   },
 ]
 
-function PostItem({ post, index }) {
-  const ref = useRef(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => ref.current?.classList.add('visible'), index * 50)
-          observer.unobserve(entry.target)
-        }
-      },
-      { threshold: 0.1 }
-    )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [index])
-
-  return (
-    <li ref={ref} className="list-item reveal" style={styles.item}>
-      <a
-        id={post.id}
-        href={post.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={styles.link}
-      >
-        <span className="type-label" style={styles.index}>{post.index}</span>
-
-        <div style={styles.body}>
-          <div style={styles.top}>
-            <span className="tag-accent" style={styles.series}>{post.series}</span>
-            <span className="type-label" style={styles.date}>{post.date}</span>
-          </div>
-          <h3 className="type-h3" style={styles.title}>{post.title}</h3>
-          <p className="type-body-md" style={styles.desc}>{post.desc}</p>
-        </div>
-
-        <span style={styles.arrow}>↗</span>
-      </a>
-    </li>
-  )
-}
-
 export default function Writing() {
   return (
     <section id="writing" className="section">
       <div className="container">
 
-        <div style={styles.header}>
+        <motion.div 
+          style={styles.header}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+        >
           <span className="type-label" style={styles.sectionIndex}>04 / WRITING</span>
           <h2 className="type-h2" style={styles.heading}>Writing</h2>
           <p className="type-body-md" style={styles.subtext}>
             Engineering thinking, in plain language.
           </p>
-        </div>
+        </motion.div>
 
-        <ul>
-          {posts.map((post, i) => (
-            <PostItem key={post.id} post={post} index={i} />
+        <motion.ul
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+        >
+          {posts.map((post) => (
+            <motion.li key={post.id} className="list-item" style={styles.item} variants={fadeUp}>
+              <a
+                id={post.id}
+                href={post.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={styles.link}
+              >
+                <span className="type-label" style={styles.index}>{post.index}</span>
+
+                <div style={styles.body}>
+                  <div style={styles.top}>
+                    <span className="tag-accent" style={styles.series}>{post.series}</span>
+                    <span className="type-label" style={styles.date}>{post.date}</span>
+                  </div>
+                  <h3 className="type-h3" style={styles.title}>{post.title}</h3>
+                  <p className="type-body-md" style={styles.desc}>{post.desc}</p>
+                </div>
+
+                <span style={styles.arrow}>↗</span>
+              </a>
+            </motion.li>
           ))}
-        </ul>
+        </motion.ul>
 
         <div style={styles.footer}>
           <a
