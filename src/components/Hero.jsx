@@ -1,31 +1,43 @@
+import { motion } from 'framer-motion'
+import { fadeUp, staggerContainer } from '../lib/transitions'
+
 export default function Hero() {
   return (
     <section id="home" style={styles.section}>
-      <div className="container" style={styles.inner}>
+      <motion.div 
+        className="container" 
+        style={styles.inner}
+        variants={{
+          hidden: {},
+          visible: { transition: { staggerChildren: 0.05, delayChildren: 0.1 } }
+        }}
+        initial="hidden"
+        animate="visible"
+      >
 
         {/* Index label */}
-        <div style={styles.indexRow}>
+        <motion.div style={styles.indexRow} variants={fadeUp}>
           <span className="type-label" style={styles.index}>01 / INTRO</span>
           <span style={styles.line} />
-        </div>
+        </motion.div>
 
         {/* Display name */}
-        <div style={styles.nameBlock}>
-          <h1 className="type-display animate-in" style={styles.name}>
+        <motion.div style={styles.nameBlock} variants={fadeUp}>
+          <h1 className="type-display" style={styles.name}>
             Damola<br />Adegbite
           </h1>
-        </div>
+        </motion.div>
 
         {/* Role + bio */}
         <div style={styles.meta}>
-          <div style={styles.roleBlock} className="animate-in" data-delay="1">
+          <motion.div style={styles.roleBlock} variants={fadeUp}>
             <span className="type-label" style={styles.label}>ROLE</span>
             <p className="type-h3" style={styles.role}>
               Backend Engineer
             </p>
-          </div>
+          </motion.div>
 
-          <div style={styles.bioBlock} className="animate-in" data-delay="2">
+          <motion.div style={styles.bioBlock} variants={fadeUp}>
             <span className="type-label" style={styles.label}>ABOUT</span>
             <p className="type-body-lg" style={styles.bio}>
               I build the systems behind the product. APIs, real-time infrastructure, distributed systems, and production deployments. Three npm packages in production.
@@ -52,11 +64,11 @@ export default function Hero() {
                 GITHUB
               </a>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Status bar */}
-        <div style={styles.statusBar} className="animate-in" data-delay="3">
+        <motion.div style={styles.statusBar} variants={fadeUp}>
           <div style={styles.statusItem}>
             <span className="type-label" style={styles.statusLabel}>STATUS</span>
             <span style={styles.statusDot} />
@@ -74,9 +86,9 @@ export default function Hero() {
             <span className="type-label" style={styles.statusLabel}>STACK</span>
             <span className="type-label" style={{ color: '#F0EDE8' }}>REACT · TS · NODE.JS</span>
           </div>
-        </div>
+        </motion.div>
 
-      </div>
+      </motion.div>
     </section>
   )
 }
