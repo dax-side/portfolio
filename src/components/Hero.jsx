@@ -40,7 +40,10 @@ export default function Hero() {
           <motion.div style={styles.bioBlock} variants={fadeUp}>
             <span className="type-label" style={styles.label}>ABOUT</span>
             <p className="type-body-lg" style={styles.bio}>
-              I build the systems behind the product. APIs, real-time infrastructure, distributed systems, and production deployments. Three npm packages in production.
+              Two years building backend systems that run in production. APIs, real-time infrastructure, distributed systems. I reach for first principles before I reach for a library. Open to remote roles.
+            </p>
+            <p className="type-body-md" style={{ color: '#F0EDE8', fontWeight: 500, marginTop: '8px', marginBottom: '8px' }}>
+              Built a CRDT from scratch. Took a system from 48 to 716 req/sec. Three packages on npm.
             </p>
             <div style={styles.ctas}>
               <a
