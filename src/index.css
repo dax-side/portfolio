@@ -1,7 +1,3 @@
-/* ============================================================
-   DESIGN TOKENS — from DESIGN.md
-   ============================================================ */
-
 :root {
   /* Colors */
   --color-primary:        #0A0A0A;
@@ -45,9 +41,6 @@
   --side-padding: clamp(20px, 5vw, 80px);
 }
 
-/* ============================================================
-   RESET & BASE
-   ============================================================ */
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -91,9 +84,6 @@ ul, ol {
   list-style: none;
 }
 
-/* ============================================================
-   TYPOGRAPHY SCALE — fluid clamp() as per DESIGN.md
-   ============================================================ */
 
 .type-display {
   font-family: var(--font-display);
@@ -169,10 +159,6 @@ ul, ol {
   letter-spacing: -0.01em;
 }
 
-/* ============================================================
-   LAYOUT UTILITIES
-   ============================================================ */
-
 .container {
   width: 100%;
   max-width: var(--max-width);
@@ -184,10 +170,6 @@ ul, ol {
   padding: var(--space-4xl) 0;
   border-top: 1px solid var(--color-border);
 }
-
-/* ============================================================
-   BUTTONS — exactly two variants, no third
-   ============================================================ */
 
 .btn-primary {
   display: inline-flex;
@@ -231,10 +213,6 @@ ul, ol {
   border-color: var(--color-border-subtle);
 }
 
-/* ============================================================
-   TAGS — two variants only
-   ============================================================ */
-
 .tag {
   display: inline-flex;
   align-items: center;
@@ -265,10 +243,6 @@ ul, ol {
   border: 1px solid var(--color-border);
 }
 
-/* ============================================================
-   CARDS
-   ============================================================ */
-
 .card {
   background-color: var(--color-surface);
   color: var(--color-text-primary);
@@ -282,10 +256,6 @@ ul, ol {
   background-color: var(--color-surface-raised);
   border-color: var(--color-border-subtle);
 }
-
-/* ============================================================
-   LIST ITEMS — three props transition simultaneously
-   ============================================================ */
 
 .list-item {
   display: flex;
@@ -307,10 +277,6 @@ ul, ol {
   padding-left: 16px;
   border-left-color: var(--color-accent);
 }
-
-/* ============================================================
-   INPUTS
-   ============================================================ */
 
 .input {
   width: 100%;
@@ -335,10 +301,6 @@ ul, ol {
   border-color: var(--color-text-secondary);
 }
 
-/* ============================================================
-   NAV LINKS
-   ============================================================ */
-
 .nav-link {
   font-family: var(--font-grotesk);
   font-size: 0.9rem;
@@ -356,10 +318,6 @@ ul, ol {
 .nav-link.active {
   color: var(--color-accent);
 }
-
-/* ============================================================
-   ENTRANCE ANIMATIONS — scroll-triggered
-   ============================================================ */
 
 @keyframes fadeUp {
   from {
@@ -383,7 +341,6 @@ ul, ol {
 .animate-in[data-delay="5"] { animation-delay: 250ms; }
 .animate-in[data-delay="6"] { animation-delay: 300ms; }
 
-/* Intersection Observer reveal */
 .reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -395,10 +352,6 @@ ul, ol {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* ============================================================
-   SCROLLBAR
-   ============================================================ */
 
 ::-webkit-scrollbar {
   width: 4px;
@@ -415,10 +368,6 @@ ul, ol {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-text-muted);
 }
-
-/* ============================================================
-   SELECTION
-   ============================================================ */
 
 ::selection {
   background-color: var(--color-accent);
