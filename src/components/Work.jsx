@@ -1,4 +1,5 @@
-import { useEffect, useRef } from 'react'
+import { motion } from 'framer-motion'
+import { fadeUp, staggerContainer } from '../lib/transitions'
 
 const packages = [
   {
@@ -92,123 +93,120 @@ const projects = [
   },
 ]
 
-function RevealCard({ children, delay, style }) {
-  const ref = useRef(null)
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => ref.current?.classList.add('visible'), delay)
-          observer.unobserve(entry.target)
-        }
-      },
-      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
-    )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [delay])
-
-  return (
-    <div ref={ref} className="reveal" style={style}>
-      {children}
-    </div>
-  )
-}
-
 export default function Work() {
   return (
     <section id="work" className="section">
       <div className="container">
 
         {/* ── Published Packages ────────────────────────────────── */}
-        <div style={styles.blockHeader}>
+        <motion.div 
+          style={styles.blockHeader}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+        >
           <span className="type-label" style={styles.sectionIndex}>02 / WORK</span>
           <h2 className="type-h2" style={styles.heading}>Published Packages</h2>
           <p className="type-body-md" style={styles.subtext}>
             Three npm packages. Full test coverage. Solves real problems.
           </p>
-        </div>
+        </motion.div>
 
-        <ul style={styles.pkgList}>
-          {packages.map((pkg, i) => (
-            <RevealCard key={pkg.id} delay={i * 50}>
-              <li id={pkg.id} className="list-item" style={styles.pkgItem}>
-                <div style={styles.pkgBody}>
-                  <div style={styles.pkgTop}>
-                    <span className="type-label" style={styles.pkgName}>{pkg.name}</span>
-                    <span className="type-label" style={styles.pkgTagline}>{pkg.tagline}</span>
-                  </div>
-                  <p className="type-body-md" style={styles.pkgDesc}>{pkg.description}</p>
+        <motion.ul 
+          style={styles.pkgList}
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+        >
+          {packages.map((pkg) => (
+            <motion.li key={pkg.id} id={pkg.id} className="list-item" style={styles.pkgItem} variants={fadeUp}>
+              <div style={styles.pkgBody}>
+                <div style={styles.pkgTop}>
+                  <span className="type-label" style={styles.pkgName}>{pkg.name}</span>
+                  <span className="type-label" style={styles.pkgTagline}>{pkg.tagline}</span>
                 </div>
-                <div style={styles.pkgLinks}>
-                  {pkg.links.docs && (
-                    <a id={`${pkg.id}-docs`} href={pkg.links.docs} className="btn-ghost"
-                      style={styles.pkgLinkBtn} target="_blank" rel="noopener noreferrer">DOCS</a>
-                  )}
-                  {pkg.links.npm && (
-                    <a id={`${pkg.id}-npm`} href={pkg.links.npm} className="btn-ghost"
-                      style={styles.pkgLinkBtn} target="_blank" rel="noopener noreferrer">NPM</a>
-                  )}
-                  {pkg.links.github && (
-                    <a id={`${pkg.id}-gh`} href={pkg.links.github} className="btn-ghost"
-                      style={styles.pkgLinkBtn} target="_blank" rel="noopener noreferrer">GH</a>
-                  )}
-                </div>
-              </li>
-            </RevealCard>
+                <p className="type-body-md" style={styles.pkgDesc}>{pkg.description}</p>
+              </div>
+              <div style={styles.pkgLinks}>
+                {pkg.links.docs && (
+                  <a id={`${pkg.id}-docs`} href={pkg.links.docs} className="btn-ghost"
+                    style={styles.pkgLinkBtn} target="_blank" rel="noopener noreferrer">DOCS</a>
+                )}
+                {pkg.links.npm && (
+                  <a id={`${pkg.id}-npm`} href={pkg.links.npm} className="btn-ghost"
+                    style={styles.pkgLinkBtn} target="_blank" rel="noopener noreferrer">NPM</a>
+                )}
+                {pkg.links.github && (
+                  <a id={`${pkg.id}-gh`} href={pkg.links.github} className="btn-ghost"
+                    style={styles.pkgLinkBtn} target="_blank" rel="noopener noreferrer">GH</a>
+                )}
+              </div>
+            </motion.li>
           ))}
-        </ul>
+        </motion.ul>
 
         {/* ── Projects ──────────────────────────────────────────── */}
-        <div style={{ ...styles.blockHeader, marginTop: '96px' }}>
+        <motion.div 
+          style={{ ...styles.blockHeader, marginTop: '96px' }}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+        >
           <h2 className="type-h2" style={styles.heading}>Projects</h2>
           <p className="type-body-md" style={styles.subtext}>
             APIs, databases, real-time systems, deployed and running.
           </p>
-        </div>
+        </motion.div>
 
-        <div style={styles.grid}>
-          {projects.map((project, i) => (
-            <RevealCard key={project.id} delay={i * 50} style={{ display: 'contents' }}>
-              <article id={project.id} className="card" style={styles.card}>
-                <div style={styles.cardHeader}>
-                  <span className="type-label" style={styles.cardIndex}>{project.index}</span>
-                  {project.accent && (
-                    <span className="tag-accent">FEATURED</span>
+        <motion.div 
+          style={styles.grid}
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+        >
+          {projects.map((project) => (
+            <motion.article key={project.id} id={project.id} className="card" style={styles.card} variants={fadeUp}>
+              <div style={styles.cardHeader}>
+                <span className="type-label" style={styles.cardIndex}>{project.index}</span>
+                {project.accent && (
+                  <span className="tag-accent">FEATURED</span>
+                )}
+              </div>
+
+              <div style={styles.cardBody}>
+                <div>
+                  <h3 className="type-h3" style={styles.projectName}>{project.name}</h3>
+                  <p className="type-label" style={styles.tagline}>{project.tagline}</p>
+                </div>
+                <p className="type-body-md" style={styles.description}>{project.description}</p>
+              </div>
+
+              <div style={styles.cardFooter}>
+                <div style={styles.tags}>
+                  {project.tags.map(tag => (
+                    <span key={tag} className="tag">{tag}</span>
+                  ))}
+                </div>
+                <div style={styles.cardLinks}>
+                  {project.links.live && (
+                    <a id={`${project.id}-live`} href={project.links.live}
+                      className="btn-primary" style={styles.smallBtn}
+                      target="_blank" rel="noopener noreferrer">LIVE</a>
+                  )}
+                  {project.links.github && (
+                    <a id={`${project.id}-gh`} href={project.links.github}
+                      className="btn-ghost" style={styles.smallBtn}
+                      target="_blank" rel="noopener noreferrer">CODE</a>
                   )}
                 </div>
-
-                <div style={styles.cardBody}>
-                  <div>
-                    <h3 className="type-h3" style={styles.projectName}>{project.name}</h3>
-                    <p className="type-label" style={styles.tagline}>{project.tagline}</p>
-                  </div>
-                  <p className="type-body-md" style={styles.description}>{project.description}</p>
-                </div>
-
-                <div style={styles.cardFooter}>
-                  <div style={styles.tags}>
-                    {project.tags.map(tag => (
-                      <span key={tag} className="tag">{tag}</span>
-                    ))}
-                  </div>
-                  <div style={styles.cardLinks}>
-                    {project.links.live && (
-                      <a id={`${project.id}-live`} href={project.links.live}
-                        className="btn-primary" style={styles.smallBtn}
-                        target="_blank" rel="noopener noreferrer">LIVE</a>
-                    )}
-                    {project.links.github && (
-                      <a id={`${project.id}-gh`} href={project.links.github}
-                        className="btn-ghost" style={styles.smallBtn}
-                        target="_blank" rel="noopener noreferrer">CODE</a>
-                    )}
-                  </div>
-                </div>
-              </article>
-            </RevealCard>
+              </div>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>
