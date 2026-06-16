@@ -42,12 +42,10 @@ export default function Contact() {
           >
             <span className="type-label" style={styles.index}>05 / CONTACT</span>
             <h2 className="type-h2" style={styles.heading}>
-              Looking for remote backend<br />
-              engineering roles.<br />
+              Open to remote roles.<br />
               <span style={styles.accentText}>Say hello.</span>
             </h2>
             <p className="type-body-md" style={styles.body}>
-              Open to backend positions.
               Happy to talk architecture, tooling,
               or open-source work.
             </p>
