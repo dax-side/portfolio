@@ -1,4 +1,5 @@
-import { useEffect, useRef } from 'react'
+import { motion } from 'framer-motion'
+import { fadeUp, staggerContainer } from '../lib/transitions'
 
 const skillGroups = [
   {
@@ -40,44 +41,21 @@ const skillGroups = [
   },
 ]
 
-function SkillItem({ item, index }) {
-  const ref = useRef(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => ref.current?.classList.add('visible'), index * 50)
-          observer.unobserve(entry.target)
-        }
-      },
-      { threshold: 0.1 }
-    )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [index])
-
-  return (
-    <li
-      ref={ref}
-      className="list-item reveal"
-      style={styles.skillItem}
-    >
-      <span className="type-label-lg" style={styles.skillName}>{item.name}</span>
-      <span className="type-body-md" style={styles.skillDetail}>{item.detail}</span>
-    </li>
-  )
-}
-
 export default function Skills() {
   return (
     <section id="skills" className="section">
       <div className="container">
 
-        <div style={styles.header}>
+        <motion.div 
+          style={styles.header}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+        >
           <span className="type-label" style={styles.sectionIndex}>03 / SKILLS</span>
           <h2 className="type-h2" style={styles.heading}>Tools & Stack</h2>
-        </div>
+        </motion.div>
 
         <div style={styles.groups}>
           {skillGroups.map(group => (
@@ -86,11 +64,19 @@ export default function Skills() {
                 <span className="type-label" style={styles.category}>{group.category}</span>
                 {group.note && <p className="type-body-md" style={styles.groupNote}>{group.note}</p>}
               </div>
-              <ul>
-                {group.items.map((item, i) => (
-                  <SkillItem key={item.name} item={item} index={i} />
+              <motion.ul
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-80px" }}
+              >
+                {group.items.map((item) => (
+                  <motion.li key={item.name} className="list-item" style={styles.skillItem} variants={fadeUp}>
+                    <span className="type-label-lg" style={styles.skillName}>{item.name}</span>
+                    <span className="type-body-md" style={styles.skillDetail}>{item.detail}</span>
+                  </motion.li>
                 ))}
-              </ul>
+              </motion.ul>
             </div>
           ))}
         </div>
