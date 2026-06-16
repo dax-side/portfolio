@@ -7,7 +7,7 @@ const packages = [
     name: '@dax-side/jwt-abstraction',
     tagline: 'JWT auth in 3 lines',
     description:
-      'JWT auth in three lines. Access and refresh tokens, Express middleware, typed error classes. Running in three production projects.',
+      'Access and refresh tokens, Express middleware, typed error classes. Running in three production projects.',
     links: {
       docs:   'https://dax-side.github.io/jwt-abstraction-site',
       npm:    'https://www.npmjs.com/package/@dax-side/jwt-abstraction',
@@ -107,7 +107,7 @@ export default function Work() {
           <span className="type-label" style={styles.sectionIndex}>02 / WORK</span>
           <h2 className="type-h2" style={styles.heading}>Published Packages</h2>
           <p className="type-body-md" style={styles.subtext}>
-            Three npm packages. Full test coverage. Solves real problems.
+            Three npm packages. Solves real problems.
           </p>
         </motion.div>
 
