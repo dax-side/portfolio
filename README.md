@@ -1,6 +1,6 @@
-# Damola Adegbite — Fullstack Developer Portfolio
+# Damola Adegbite — Backend Developer Portfolio
 
-Personal portfolio website for Damola Adegbite, a Fullstack Engineer specializing in React, Node.js, and TypeScript. 
+Personal portfolio website for Damola Adegbite, a Backend Engineer specializing in Node.js, and TypeScript. 
 
 ## Tech Stack
 - **Frontend**: React, Vite
