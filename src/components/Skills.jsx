@@ -6,12 +6,12 @@ const skillGroups = [
     id: 'skills-backend',
     category: 'Backend & APIs',
     items: [
-      { name: 'Node.js',     detail: 'Primary runtime for APIs, real-time services, and tooling' },
-      { name: 'Express',     detail: 'REST APIs, middleware, routing' },
-      { name: 'NestJS',      detail: 'Modular architecture, dependency injection, guards' },
-      { name: 'GraphQL',     detail: 'Apollo Server, schema-first, custom resolvers' },
-      { name: 'PostgreSQL',  detail: 'Schema design, query tuning, replication' },
-      { name: 'MongoDB',     detail: 'Aggregation pipelines, connection pooling, index tuning' },
+      { name: 'Node.js',     detail: 'Primary runtime' },
+      { name: 'Express',     detail: 'REST APIs and routing' },
+      { name: 'NestJS',      detail: 'Modular architecture, dependency injection' },
+      { name: 'GraphQL',     detail: 'Apollo Server, schema-first' },
+      { name: 'PostgreSQL',  detail: 'Schema design, query tuning' },
+      { name: 'MongoDB',     detail: 'Aggregation pipelines, index tuning' },
       { name: 'Redis',       detail: 'Caching, pub/sub, rate limiting' },
     ],
   },
@@ -19,24 +19,23 @@ const skillGroups = [
     id: 'skills-devops',
     category: 'Infrastructure & DevOps',
     items: [
-      { name: 'Git & GitHub',   detail: 'Version control, PR workflows, code review' },
+      { name: 'Git & GitHub',   detail: 'Version control, PR workflows' },
       { name: 'Docker',      detail: 'Multi-stage builds, composed services' },
-      { name: 'GitHub Actions', detail: 'CI/CD pipelines with health checks, rollback on failure' },
-      { name: 'AWS EC2',        detail: 'Production hosting, IAM policies, S3 integration' },
+      { name: 'GitHub Actions', detail: 'CI/CD with health checks and rollback' },
+      { name: 'AWS EC2',        detail: 'Production hosting, IAM, S3' },
       { name: 'PM2',            detail: 'Process management, zero-downtime restarts' },
       { name: 'Railway',        detail: 'Fast deploys, per-environment config' },
     ],
   },
   {
     id: 'skills-frontend',
-    category: 'Frontend (light)',
-    note: 'Can ship a frontend, but not the primary focus.',
+    category: 'Frontend',
     items: [
-      { name: 'React',       detail: 'Component architecture, hooks, state management' },
-      { name: 'Next.js',     detail: 'App router, SSR/SSG, API routes' },
-      { name: 'TypeScript',  detail: 'Strict mode on every production project' },
-      { name: 'Tailwind CSS',detail: 'Utility-first styling, responsive design' },
-      { name: 'Vite',        detail: 'Fast bundling, HMR, optimized builds' },
+      { name: 'React',       detail: '' },
+      { name: 'Next.js',     detail: '' },
+      { name: 'TypeScript',  detail: '' },
+      { name: 'Tailwind CSS',detail: '' },
+      { name: 'Vite',        detail: '' },
     ],
   },
 ]
@@ -54,7 +53,7 @@ export default function Skills() {
           viewport={{ once: true, margin: "-80px" }}
         >
           <span className="type-label" style={styles.sectionIndex}>03 / SKILLS</span>
-          <h2 className="type-h2" style={styles.heading}>Tools & Stack</h2>
+          <h2 className="type-h2" style={styles.heading}>Tools I use in production.</h2>
         </motion.div>
 
         <div style={styles.groups}>
@@ -73,7 +72,7 @@ export default function Skills() {
                 {group.items.map((item) => (
                   <motion.li key={item.name} className="list-item" style={styles.skillItem} variants={fadeUp}>
                     <span className="type-label-lg" style={styles.skillName}>{item.name}</span>
-                    <span className="type-body-md" style={styles.skillDetail}>{item.detail}</span>
+                    {item.detail && <span className="type-body-md" style={styles.skillDetail}>{item.detail}</span>}
                   </motion.li>
                 ))}
               </motion.ul>
