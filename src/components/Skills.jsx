@@ -2,19 +2,8 @@ import { useEffect, useRef } from 'react'
 
 const skillGroups = [
   {
-    id: 'skills-frontend',
-    category: 'Frontend',
-    items: [
-      { name: 'React',       detail: 'Component architecture, hooks, state management' },
-      { name: 'Next.js',     detail: 'App router, SSR/SSG, API routes' },
-      { name: 'TypeScript',  detail: 'Strict mode on every production project' },
-      { name: 'Tailwind CSS',detail: 'Utility-first styling, responsive design' },
-      { name: 'Vite',        detail: 'Fast bundling, HMR, optimized builds' },
-    ],
-  },
-  {
     id: 'skills-backend',
-    category: 'Backend & Data',
+    category: 'Backend & APIs',
     items: [
       { name: 'Node.js',     detail: 'Primary runtime for APIs, real-time services, and tooling' },
       { name: 'Express',     detail: 'REST APIs, middleware, routing' },
@@ -27,7 +16,7 @@ const skillGroups = [
   },
   {
     id: 'skills-devops',
-    category: 'DevOps & Tooling',
+    category: 'Infrastructure & DevOps',
     items: [
       { name: 'Git & GitHub',   detail: 'Version control, PR workflows, code review' },
       { name: 'Docker',      detail: 'Multi-stage builds, composed services' },
@@ -35,6 +24,18 @@ const skillGroups = [
       { name: 'AWS EC2',        detail: 'Production hosting, IAM policies, S3 integration' },
       { name: 'PM2',            detail: 'Process management, zero-downtime restarts' },
       { name: 'Railway',        detail: 'Fast deploys, per-environment config' },
+    ],
+  },
+  {
+    id: 'skills-frontend',
+    category: 'Frontend (light)',
+    note: 'Can ship a frontend, but not the primary focus.',
+    items: [
+      { name: 'React',       detail: 'Component architecture, hooks, state management' },
+      { name: 'Next.js',     detail: 'App router, SSR/SSG, API routes' },
+      { name: 'TypeScript',  detail: 'Strict mode on every production project' },
+      { name: 'Tailwind CSS',detail: 'Utility-first styling, responsive design' },
+      { name: 'Vite',        detail: 'Fast bundling, HMR, optimized builds' },
     ],
   },
 ]
@@ -83,6 +84,7 @@ export default function Skills() {
             <div key={group.id} id={group.id} style={styles.group}>
               <div style={styles.groupHeader}>
                 <span className="type-label" style={styles.category}>{group.category}</span>
+                {group.note && <p className="type-body-md" style={styles.groupNote}>{group.note}</p>}
               </div>
               <ul>
                 {group.items.map((item, i) => (
@@ -119,8 +121,12 @@ const styles = {
   groupHeader: {
     paddingBottom: '16px',
     borderBottom: '1px solid #1F1F1F',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '8px',
   },
   category:    { color: '#E8FF5A' },
+  groupNote:   { color: '#808080', fontSize: '0.875rem' },
   skillItem:   { flexDirection: 'column', gap: '4px', cursor: 'default' },
   skillName:   { color: '#F0EDE8' },
   skillDetail: { color: '#808080', fontSize: '0.875rem', lineHeight: 1.5 },
