@@ -74,7 +74,7 @@ const projects = [
     tags: ['Node.js', 'TypeScript', 'PostgreSQL', 'Stripe', 'Polygon', 'Socket.io'],
     accent: false,
     links: {
-      live:   'https://crosspaymentf.pxxl.click/',
+      live:   'https://cross-payment-five.vercel.app/',
       github: 'https://github.com/dax-side/cross_payment',
     },
   },
