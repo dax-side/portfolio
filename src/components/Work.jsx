@@ -217,7 +217,7 @@ const styles = {
     gap: '16px',
     marginBottom: 'var(--space-2xl)',
   },
-  sectionIndex: { color: '#3A3A3A' },
+  sectionIndex: { color: '#A0A0A0' },
   heading:      { color: '#F0EDE8' },
   subtext:      { color: '#808080', lineHeight: 1.6 },
 
@@ -255,7 +255,7 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  cardIndex:   { color: '#3A3A3A' },
+  cardIndex:   { color: '#A0A0A0' },
   cardBody:    { flex: 1, display: 'flex', flexDirection: 'column', gap: '16px' },
   projectName: { color: '#F0EDE8', marginBottom: '4px' },
   tagline:     { color: '#E8FF5A', letterSpacing: '0.06em' },
