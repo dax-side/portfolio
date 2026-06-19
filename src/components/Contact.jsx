@@ -1,4 +1,4 @@
-import { useForm, ValidationError } from '@formspree/react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { fadeUp } from '../lib/transitions'
 
@@ -24,16 +24,30 @@ const CONTACT_LINKS = [
 ]
 
 export default function Contact() {
-  const [state, handleSubmit] = useForm('xjgdzoyd')
+  const [status, setStatus] = useState('idle')
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setStatus('submitting')
+
+    const res = await fetch('https://formspree.io/f/xjgdzoyd', {
+      method: 'POST',
+      body: new FormData(e.target),
+      headers: { Accept: 'application/json' },
+    })
+
+    setStatus(res.ok ? 'succeeded' : 'error')
+  }
+
+  const isDisabled = status === 'submitting' || status === 'succeeded'
 
   return (
     <section id="contact" className="section" style={styles.section}>
       <div className="container">
-
         <div style={styles.layout}>
 
           {/* Left — header + links */}
-          <motion.div 
+          <motion.div
             style={styles.left}
             variants={fadeUp}
             initial="hidden"
@@ -70,7 +84,7 @@ export default function Contact() {
           </motion.div>
 
           {/* Right — form */}
-          <motion.div 
+          <motion.div
             style={styles.right}
             variants={fadeUp}
             initial="hidden"
@@ -95,9 +109,8 @@ export default function Contact() {
                       required
                       placeholder="Your name"
                       className="input"
-                      disabled={state.submitting || state.succeeded}
+                      disabled={isDisabled}
                     />
-                    <ValidationError prefix="Name" field="name" errors={state.errors} style={styles.errorMsg} />
                   </div>
                   <div style={styles.field}>
                     <label htmlFor="contact-email" className="type-label" style={styles.fieldLabel}>EMAIL</label>
@@ -108,9 +121,8 @@ export default function Contact() {
                       required
                       placeholder="your@email.com"
                       className="input"
-                      disabled={state.submitting || state.succeeded}
+                      disabled={isDisabled}
                     />
-                    <ValidationError prefix="Email" field="email" errors={state.errors} style={styles.errorMsg} />
                   </div>
                 </div>
 
@@ -122,9 +134,8 @@ export default function Contact() {
                     type="text"
                     placeholder="What's it about?"
                     className="input"
-                    disabled={state.submitting || state.succeeded}
+                    disabled={isDisabled}
                   />
-                  <ValidationError prefix="Subject" field="subject" errors={state.errors} style={styles.errorMsg} />
                 </div>
 
                 <div style={styles.field}>
@@ -137,30 +148,30 @@ export default function Contact() {
                     placeholder="Tell me what you're building..."
                     className="input"
                     style={styles.textarea}
-                    disabled={state.submitting || state.succeeded}
+                    disabled={isDisabled}
                   />
-                  <ValidationError prefix="Message" field="message" errors={state.errors} style={styles.errorMsg} />
                 </div>
 
                 <button
                   id="contact-submit"
                   type="submit"
                   className="btn-primary"
-                  disabled={state.submitting || state.succeeded}
+                  disabled={isDisabled}
                   style={styles.submitBtn}
                 >
-                  {(!state.submitting && !state.succeeded) && 'SEND MESSAGE'}
-                  {state.submitting && 'SENDING...'}
-                  {state.succeeded && '✓ SENT'}
+                  {status === 'idle' && 'SEND MESSAGE'}
+                  {status === 'submitting' && 'SENDING...'}
+                  {status === 'succeeded' && '✓ SENT'}
+                  {status === 'error' && 'TRY AGAIN'}
                 </button>
 
-                {state.succeeded && (
+                {status === 'succeeded' && (
                   <p className="type-label" style={styles.successMsg}>
                     Message received. I'll get back to you within 48hrs.
                   </p>
                 )}
-                
-                {state.errors && !state.submitting && !state.succeeded && (
+
+                {status === 'error' && (
                   <p className="type-label" style={styles.errorMsg}>
                     There was an issue sending your message. Please try again.
                   </p>
@@ -188,7 +199,7 @@ const styles = {
     flexDirection: 'column',
     gap: '32px',
   },
-  index:      { color: '#3A3A3A' },
+  index:      { color: '#A0A0A0' },
   heading:    { color: '#F0EDE8', lineHeight: 1.1 },
   accentText: { color: '#E8FF5A' },
   body:       { color: '#808080', maxWidth: '360px' },
@@ -202,19 +213,19 @@ const styles = {
     padding: '20px 0',
     color: 'inherit',
   },
-  linkLabel:  { color: '#3A3A3A', width: '72px', flexShrink: 0 },
+  linkLabel:  { color: '#A0A0A0', width: '72px', flexShrink: 0 },
   linkHandle: { color: '#F0EDE8', flex: 1, fontSize: '0.9rem' },
   arrow:      { color: '#808080', fontSize: '1rem', fontFamily: "'Space Mono', monospace" },
   right:      {},
   formCard: {
     border: '1px solid #1F1F1F',
-    padding: 'clamp(20px, 5vw, 40px)', // MOBILE FIX
+    padding: 'clamp(20px, 5vw, 40px)',
     display: 'flex',
     flexDirection: 'column',
     gap: '32px',
     backgroundColor: '#111111',
   },
-  formLabel: { color: '#3A3A3A' },
+  formLabel: { color: '#A0A0A0' },
   form: {
     display: 'flex',
     flexDirection: 'column',
@@ -222,7 +233,7 @@ const styles = {
   },
   row: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', // MOBILE FIX
+    gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
     gap: '16px',
   },
   field: {
@@ -230,7 +241,7 @@ const styles = {
     flexDirection: 'column',
     gap: '8px',
   },
-  fieldLabel: { color: '#3A3A3A' },
+  fieldLabel: { color: '#A0A0A0' },
   textarea: {
     resize: 'vertical',
     minHeight: '120px',
