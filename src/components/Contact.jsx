@@ -176,11 +176,11 @@ export default function Contact() {
 }
 
 const styles = {
-  section: { paddingBottom: '160px' },
+  section: { paddingBottom: 'var(--space-5xl)' },
   layout: {
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
-    gap: '80px',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+    gap: 'clamp(24px, 5vw, 80px)',
     alignItems: 'start',
   },
   left: {
@@ -208,7 +208,7 @@ const styles = {
   right:      {},
   formCard: {
     border: '1px solid #1F1F1F',
-    padding: '40px',
+    padding: 'clamp(20px, 5vw, 40px)', // MOBILE FIX
     display: 'flex',
     flexDirection: 'column',
     gap: '32px',
@@ -222,7 +222,7 @@ const styles = {
   },
   row: {
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', // MOBILE FIX
     gap: '16px',
   },
   field: {
