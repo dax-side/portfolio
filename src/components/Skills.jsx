@@ -92,7 +92,7 @@ const styles = {
     gap: '16px',
     marginBottom: 'var(--space-2xl)',
   },
-  sectionIndex: { color: '#3A3A3A' },
+  sectionIndex: { color: '#A0A0A0' },
   heading:      { color: '#F0EDE8' },
   groups: {
     display: 'grid',
