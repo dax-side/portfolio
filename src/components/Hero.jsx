@@ -116,7 +116,7 @@ const styles = {
     gap: '16px',
   },
   index: {
-    color: '#3A3A3A',
+    color: '#A0A0A0',
     flexShrink: 0,
   },
   line: {
@@ -147,7 +147,7 @@ const styles = {
     gap: '24px',
   },
   label: {
-    color: '#3A3A3A',
+    color: '#A0A0A0',
   },
   role: {
     color: '#F0EDE8',
@@ -172,7 +172,7 @@ const styles = {
     gap: '8px',
   },
   statusLabel: {
-    color: '#3A3A3A',
+    color: '#A0A0A0',
   },
   statusDot: {
     width: '5px',
