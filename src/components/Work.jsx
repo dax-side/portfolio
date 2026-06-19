@@ -96,7 +96,6 @@ export default function Work() {
     <section id="work" className="section">
       <div className="container">
 
-        {/* ── Published Packages ────────────────────────────────── */}
         <motion.div 
           style={styles.blockHeader}
           variants={fadeUp}
@@ -147,7 +146,7 @@ export default function Work() {
 
         {/* ── Projects ──────────────────────────────────────────── */}
         <motion.div 
-          style={{ ...styles.blockHeader, marginTop: '96px' }}
+          style={{ ...styles.blockHeader, marginTop: 'var(--space-3xl)' }}
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -160,7 +159,7 @@ export default function Work() {
         </motion.div>
 
         <motion.div 
-          style={styles.grid}
+          className="work-grid" style={styles.grid}
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -216,7 +215,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     gap: '16px',
-    marginBottom: '48px',
+    marginBottom: 'var(--space-2xl)',
   },
   sectionIndex: { color: '#3A3A3A' },
   heading:      { color: '#F0EDE8' },
