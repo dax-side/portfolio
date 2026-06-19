@@ -115,7 +115,7 @@ const styles = {
     gap: '16px',
     marginBottom: 'var(--space-2xl)',
   },
-  sectionIndex: { color: '#3A3A3A' },
+  sectionIndex: { color: '#A0A0A0' },
   heading:      { color: '#F0EDE8' },
   subtext:      { color: '#808080', lineHeight: 1.6 },
 
@@ -132,7 +132,7 @@ const styles = {
     color: 'inherit',
   },
   index: {
-    color: '#3A3A3A',
+    color: '#A0A0A0',
     flexShrink: 0,
     paddingTop: '4px',
     width: '32px',
@@ -153,7 +153,7 @@ const styles = {
     padding: '3px 8px',
   },
   date: {
-    color: '#3A3A3A',
+    color: '#A0A0A0',
   },
   title: {
     color: '#F0EDE8',
