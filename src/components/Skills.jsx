@@ -56,7 +56,7 @@ export default function Skills() {
           <h2 className="type-h2" style={styles.heading}>Tools I use in production.</h2>
         </motion.div>
 
-        <div style={styles.groups}>
+        <div className="skills-grid" style={styles.groups}>
           {skillGroups.map(group => (
             <div key={group.id} id={group.id} style={styles.group}>
               <div style={styles.groupHeader}>
@@ -90,14 +90,13 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     gap: '16px',
-    marginBottom: '64px',
+    marginBottom: 'var(--space-2xl)',
   },
   sectionIndex: { color: '#3A3A3A' },
   heading:      { color: '#F0EDE8' },
   groups: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
-    gap: '64px',
+    gap: 'clamp(24px, 5vw, 64px)',
   },
   group: {
     display: 'flex',
