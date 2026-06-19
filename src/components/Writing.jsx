@@ -113,7 +113,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     gap: '16px',
-    marginBottom: '48px',
+    marginBottom: 'var(--space-2xl)',
   },
   sectionIndex: { color: '#3A3A3A' },
   heading:      { color: '#F0EDE8' },
