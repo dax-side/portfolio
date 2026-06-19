@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [active, setActive] = useState('home')
+  const [isOpen, setIsOpen] = useState(false) 
 
   useEffect(() => {
     const onScroll = () => {
@@ -21,6 +22,12 @@ export default function Nav() {
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    const onResize = () => { if (window.innerWidth > 768) setIsOpen(false) }
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
   }, [])
 
   const links = [
@@ -49,12 +56,12 @@ export default function Nav() {
           DA
         </a>
 
-        <ul style={styles.links}>
+        <ul className="nav-links-desktop" style={styles.links}>
           {links.map(link => (
             <li key={link.id}>
               <a
                 href={`#${link.id}`}
-                onClick={e => handleClick(e, link.id)}
+                onClick={e => { handleClick(e, link.id); setIsOpen(false) }}
                 className={`nav-link${active === link.id ? ' active' : ''}`}
               >
                 {link.label}
@@ -68,11 +75,37 @@ export default function Nav() {
           onClick={e => handleClick(e, 'contact')}
           id="nav-cta"
           className="btn-ghost"
-          style={{ fontSize: '0.75rem' }}
+          style={{ fontSize: '0.75rem', minHeight: '44px' }}
         >
           GET IN TOUCH
         </a>
+
+        <button
+          className="nav-hamburger"
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          onClick={() => setIsOpen(o => !o)}
+          style={styles.hamburger}
+        >
+          {isOpen ? '✕' : '☰'}
+        </button>
       </div>
+
+      {isOpen && (
+        <ul style={styles.mobileMenu}>
+          {links.map(link => (
+            <li key={link.id}>
+              <a
+                href={`#${link.id}`}
+                onClick={e => { handleClick(e, link.id); setIsOpen(false) }}
+                className={`nav-link${active === link.id ? ' active' : ''}`}
+                style={styles.mobileLink}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
     </nav>
   )
 }
@@ -114,9 +147,24 @@ const styles = {
     display: 'inline-block',
     flexShrink: 0,
   },
-  links: {
+  links: {},
+  hamburger: {
+    color: '#F0EDE8',
+    fontSize: '1.25rem',
+    background: 'none',
+    border: 'none',
+    cursor: 'pointer',
+  },
+  mobileMenu: {
+    backgroundColor: 'rgba(10, 10, 10, 0.98)',
+    borderTop: '1px solid #1F1F1F',
+    padding: '8px 0',
+  },
+  mobileLink: {
     display: 'flex',
     alignItems: 'center',
-    gap: '32px',
+    minHeight: '44px',
+    padding: '0 var(--side-padding)',
+    width: '100%',
   },
 }
