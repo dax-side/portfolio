@@ -16,17 +16,17 @@ export default function Hero() {
       >
 
         {/* Index label */}
-        <motion.div style={styles.indexRow} variants={fadeUp}>
+        <div style={styles.indexRow}>
           <span className="type-label" style={styles.index}>01 / INTRO</span>
           <span style={styles.line} />
-        </motion.div>
+        </div>
 
         {/* Display name */}
-        <motion.div style={styles.nameBlock} variants={fadeUp}>
+        <div style={styles.nameBlock}>
           <h1 className="type-display" style={styles.name}>
             Damola<br />Adegbite
           </h1>
-        </motion.div>
+        </div>
 
         {/* Role + bio */}
         <div className="hero-meta" style={styles.meta}>
