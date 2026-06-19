@@ -248,7 +248,7 @@ ul, ol {
   color: var(--color-text-primary);
   border-radius: var(--radius-none);
   border: 1px solid var(--color-border);
-  padding: 32px;
+  padding: clamp(16px, 4vw, 32px);
   transition: background-color 200ms ease-out, border-color 200ms ease-out;
 }
 
@@ -338,4 +338,83 @@ ul, ol {
 ::selection {
   background-color: var(--color-accent);
   color: var(--color-on-accent);
+}
+
+/* ─── Mobile Nav ──────────────────────────────────────── */
+.nav-hamburger { display: none; } /* MOBILE FIX */
+.nav-links-desktop { display: flex; align-items: center; gap: 32px; } /* MOBILE FIX */
+
+@media (max-width: 768px) {
+  .nav-hamburger {             /* MOBILE FIX */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+  }
+  .nav-links-desktop { display: none; } /* MOBILE FIX */
+}
+
+@media (max-width: 1024px) {
+  body { font-size: clamp(14px, 2vw, 16px); } /* MOBILE FIX */
+}
+
+.work-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 560px) {
+  .work-grid {
+    grid-template-columns: 1fr; /* MOBILE FIX */
+  }
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(24px, 5vw, 64px);
+}
+
+@media (max-width: 900px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr); /* MOBILE FIX */
+  }
+  .skills-grid > *:last-child:nth-child(2n - 1) {
+    grid-column: 1 / -1; /* MOBILE FIX */
+  }
+}
+
+@media (max-width: 560px) {
+  .skills-grid {
+    grid-template-columns: 1fr; /* MOBILE FIX */
+  }
+  .skills-grid > *:last-child:nth-child(2n - 1) {
+    grid-column: auto; /* reset */
+  }
+}
+
+.hero-stats {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+@media (max-width: 560px) {
+  .hero-stats {
+    flex-direction: column; /* MOBILE FIX */
+    gap: 12px;
+  }
+}
+
+.hero-meta {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: clamp(24px, 5vw, 64px);
+}
+
+@media (max-width: 768px) {
+  .hero-meta {
+    grid-template-columns: 1fr; /* MOBILE FIX */
+  }
 }
