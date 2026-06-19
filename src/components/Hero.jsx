@@ -29,7 +29,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Role + bio */}
-        <div style={styles.meta}>
+        <div className="hero-meta" style={styles.meta}>
           <motion.div style={styles.roleBlock} variants={fadeUp}>
             <span className="type-label" style={styles.label}>ROLE</span>
             <p className="type-h3" style={styles.role}>
@@ -71,7 +71,7 @@ export default function Hero() {
         </div>
 
         {/* Status bar */}
-        <motion.div style={styles.statusBar} variants={fadeUp}>
+        <motion.div className="hero-stats" style={styles.statusBar} variants={fadeUp}>
           <div style={styles.statusItem}>
             <span className="type-label" style={styles.statusLabel}>STATUS</span>
             <span style={styles.statusDot} />
@@ -98,8 +98,8 @@ export default function Hero() {
 
 const styles = {
   section: {
-    paddingTop: '160px',
-    paddingBottom: '120px',
+    paddingTop: 'var(--space-5xl)',    // MOBILE FIX
+    paddingBottom: 'var(--space-4xl)', // MOBILE FIX
     minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
@@ -132,8 +132,7 @@ const styles = {
   },
   meta: {
     display: 'grid',
-    gridTemplateColumns: '1fr 2fr',
-    gap: '64px',
+    gap: 'clamp(24px, 5vw, 64px)', // MOBILE FIX
     alignItems: 'start',
     maxWidth: '900px',
   },
@@ -164,9 +163,6 @@ const styles = {
     flexWrap: 'wrap',
   },
   statusBar: {
-    display: 'flex',
-    gap: '40px',
-    flexWrap: 'wrap',
     paddingTop: '24px',
     borderTop: '1px solid #1F1F1F',
   },
