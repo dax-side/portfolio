@@ -41,6 +41,6 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  footerLeft:  { color: '#3A3A3A' },
-  footerRight: { color: '#3A3A3A' },
+  footerLeft:  { color: '#A0A0A0' },
+  footerRight: { color: '#A0A0A0' },
 }
