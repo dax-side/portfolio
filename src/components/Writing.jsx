@@ -17,7 +17,7 @@ const posts = [
     title:    'How Would I Build a Payment System That Doesn\'t Lose Money',
     series:   'How Would I Build',
     desc:     'Correlation IDs, SAGA pattern, SELECT FOR UPDATE, primary/replica splitting. Reasoning through the full design before a line of code gets written.',
-    href:     'https://dev.to/dax-side/how-would-i-build-a-payment-system-that-doesnt-lose-money-2pho',
+    href:     'https://dev.to/dax-side/how-would-i-build-a-payment-system-that-doesnt-lose-money-16ap',
     date:     'May 2026',
   },
   {
