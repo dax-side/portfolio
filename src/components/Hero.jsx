@@ -33,7 +33,7 @@ export default function Hero() {
           <motion.div style={styles.roleBlock} variants={fadeUp}>
             <span className="type-label" style={styles.label}>ROLE</span>
             <p className="type-h3" style={styles.role}>
-              Backend Engineer
+              Backend/DevOps Engineer
             </p>
           </motion.div>
 
