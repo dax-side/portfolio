@@ -39,7 +39,6 @@ const packages = [
 const projects = [
   {
     id: 'proj-evals',
-    index: '01',
     name: 'AI Coding-Agent Evaluation',
     tagline: 'Independent contributor · Shipd',
     description:
@@ -51,7 +50,6 @@ const projects = [
   },
   {
     id: 'proj-collab',
-    index: '02',
     name: 'CollabEdit',
     tagline: 'Real-time collaborative editor',
     description:
@@ -65,7 +63,6 @@ const projects = [
   },
   {
     id: 'proj-shop',
-    index: '03',
     name: 'Oja Supply Co.',
     tagline: 'Online shop + mobile app',
     description:
@@ -78,7 +75,6 @@ const projects = [
   },
   {
     id: 'proj-ecommerce',
-    index: '04',
     name: 'E-commerce Microservices API',
     tagline: '48 → 716 req/sec',
     description:
@@ -90,7 +86,6 @@ const projects = [
   },
   {
     id: 'proj-crossPay',
-    index: '05',
     name: 'CrossPay',
     tagline: 'Cross-border remittance on-chain',
     description:
@@ -103,7 +98,6 @@ const projects = [
   },
   {
     id: 'proj-hoh',
-    index: '06',
     name: 'Heart of House',
     tagline: 'B2B marketplace',
     description:
@@ -126,7 +120,6 @@ export default function Work() {
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
         >
-          <span className="type-label" style={styles.sectionIndex}>02 / WORK</span>
           <h2 className="type-h2" style={styles.heading}>Published Packages</h2>
           <p className="type-body-md" style={styles.subtext}>
             Three npm packages. Solves real problems.
@@ -190,12 +183,11 @@ export default function Work() {
         >
           {projects.map((project) => (
             <motion.article key={project.id} id={project.id} className="card" style={styles.card} variants={fadeUp}>
-              <div style={styles.cardHeader}>
-                <span className="type-label" style={styles.cardIndex}>{project.index}</span>
-                {project.badge && (
+              {project.badge && (
+                <div style={styles.cardHeader}>
                   <span className="tag-accent">{project.badge}</span>
-                )}
-              </div>
+                </div>
+              )}
 
               <div style={styles.cardBody}>
                 <div>
@@ -243,7 +235,6 @@ const styles = {
     gap: '16px',
     marginBottom: 'var(--space-xl)',
   },
-  sectionIndex: { color: 'var(--color-text-muted)' },
   heading:      { color: 'var(--color-text-primary)' },
   subtext:      { color: 'var(--color-text-secondary)', lineHeight: 1.6 },
 
@@ -280,7 +271,6 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  cardIndex:   { color: 'var(--color-text-muted)' },
   cardBody:    { flex: 1, display: 'flex', flexDirection: 'column', gap: '16px' },
   projectName: { color: 'var(--color-text-primary)', marginBottom: '4px' },
   tagline:     { color: 'var(--color-accent-text)', letterSpacing: '0.06em' },

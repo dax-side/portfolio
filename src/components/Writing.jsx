@@ -4,7 +4,6 @@ import { fadeUp, staggerContainer } from '../lib/transitions'
 const posts = [
   {
     id:       'post-build-right-now',
-    index:    '01',
     title:    'How Would I Build For Right Now',
     series:   'How Would I Build',
     desc:     'On premature optimisation. You can only build for the version of your system that your current data supports. Anything else is speculation with a roadmap attached.',
@@ -13,7 +12,6 @@ const posts = [
   },
   {
     id:       'post-payment-system',
-    index:    '02',
     title:    'How Would I Build a Payment System That Doesn\'t Lose Money',
     series:   'How Would I Build',
     desc:     'Correlation IDs, SAGA pattern, SELECT FOR UPDATE, primary/replica splitting. Reasoning through the full design before a line of code gets written.',
@@ -22,7 +20,6 @@ const posts = [
   },
   {
     id:       'post-emissions-dashboard',
-    index:    '03',
     title:    'I Built a Tool That Shows Developers What Their Backend Costs the Planet',
     series:   'BUILT',
     desc:     'Cloud emissions dashboard. Input your provider, region, and compute hours. It outputs a CO2e breakdown by service with Gemini-ranked suggestions and estimated monthly savings.',
@@ -31,7 +28,6 @@ const posts = [
   },
   {
     id:       'post-gitnotion',
-    index:    '04',
     title:    'GitNotion — GitHub to Notion Sync with AI Reports',
     series:   'BUILT',
     desc:     'MCP server that syncs GitHub issues, PRs, and commits into Notion databases. Gemini generates the weekly summaries, release notes, and contributor breakdowns. Ships via npx.',
@@ -52,7 +48,6 @@ export default function Writing() {
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
         >
-          <span className="type-label" style={styles.sectionIndex}>05 / WRITING</span>
           <h2 className="type-h2" style={styles.heading}>Writing</h2>
           <p className="type-body-md" style={styles.subtext}>
             Engineering thinking, in plain language.
@@ -74,8 +69,6 @@ export default function Writing() {
                 rel="noopener noreferrer"
                 style={styles.link}
               >
-                <span className="type-label" style={styles.index}>{post.index}</span>
-
                 <div style={styles.body}>
                   <div style={styles.top}>
                     <span className="tag-accent" style={styles.series}>{post.series}</span>
@@ -115,7 +108,6 @@ const styles = {
     gap: '16px',
     marginBottom: 'var(--space-xl)',
   },
-  sectionIndex: { color: 'var(--color-text-muted)' },
   heading:      { color: 'var(--color-text-primary)' },
   subtext:      { color: 'var(--color-text-secondary)', lineHeight: 1.6 },
 
@@ -130,12 +122,6 @@ const styles = {
     padding: '24px 0',
     width: '100%',
     color: 'inherit',
-  },
-  index: {
-    color: 'var(--color-text-muted)',
-    flexShrink: 0,
-    paddingTop: '4px',
-    width: '32px',
   },
   body: {
     flex: 1,
