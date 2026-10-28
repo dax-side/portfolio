@@ -53,7 +53,7 @@ const skillGroups = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="section">
+    <section id="skills" className="section section-band">
       <div className="container">
 
         <motion.div 

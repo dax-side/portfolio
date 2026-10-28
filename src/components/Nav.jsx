@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const THEME_COLORS = { light: '#F0EDE8', dark: '#0A0A0A' }
+const THEME_COLORS = { light: '#F0EDE8', dark: '#1A1918' }
 
 // Light is the default; a dark choice is saved and applied before paint by the script in index.html.
 function ThemeToggle() {
