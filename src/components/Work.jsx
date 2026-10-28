@@ -47,7 +47,7 @@ const projects = [
     tags: ['Node.js', 'TypeScript', 'WebSocket', 'PostgreSQL', 'Prisma', 'React'],
     accent: true,
     links: {
-      live:   'https://collabeditf.pxxl.click/',
+      live:   'https://collab-edit-pink.vercel.app/',
       github: 'https://github.com/dax-side/collab_edit',
     },
   },
@@ -240,7 +240,6 @@ const styles = {
 
   grid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(2, 1fr)',
     gap: '1px',
     backgroundColor: '#1F1F1F',
   },
