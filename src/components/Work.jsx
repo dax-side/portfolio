@@ -121,9 +121,6 @@ export default function Work() {
           viewport={{ once: true, margin: "-80px" }}
         >
           <h2 className="type-h2" style={styles.heading}>Published Packages</h2>
-          <p className="type-body-md" style={styles.subtext}>
-            Three npm packages. Solves real problems.
-          </p>
         </motion.div>
 
         <motion.ul 
