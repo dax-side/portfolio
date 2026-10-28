@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { fadeUp, staggerContainer } from '../lib/transitions'
+import { fadeUp } from '../lib/transitions'
 
 export default function Hero() {
   return (
