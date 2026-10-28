@@ -35,12 +35,15 @@ export default function Hero() {
             <p className="type-h3" style={styles.role}>
               Backend/DevOps Engineer
             </p>
+            <p className="type-body-md" style={styles.roleSub}>
+              + AI agent evaluation
+            </p>
           </motion.div>
 
           <motion.div style={styles.bioBlock} variants={fadeUp}>
             <span className="type-label" style={styles.label}>ABOUT</span>
             <p className="type-body-lg" style={styles.bio}>
-              4 years building backend systems that run in production. APIs, real-time infrastructure. Open to remote roles.
+              4 years building backend systems that run in production. APIs, real-time infrastructure. Now I also build hard coding tasks that test AI coding agents on large open-source codebases. Open to remote roles.
             </p>
             <p className="type-body-md" style={{ color: '#F0EDE8', fontWeight: 500, marginTop: '8px', marginBottom: '8px' }}>
               Built a CRDT from scratch. Took a system from 48 to 716 req/sec. Three packages on npm.
@@ -79,7 +82,7 @@ export default function Hero() {
           </div>
           <div style={styles.statusItem}>
             <span className="type-label" style={styles.statusLabel}>FOCUS</span>
-            <span className="type-label" style={{ color: '#F0EDE8' }}>BACKEND · NODE.JS · DEVOPS</span>
+            <span className="type-label" style={{ color: '#F0EDE8' }}>BACKEND · DEVOPS · AI EVALS</span>
           </div>
           <div style={styles.statusItem}>
             <span className="type-label" style={styles.statusLabel}>PACKAGES</span>
@@ -152,6 +155,10 @@ const styles = {
   role: {
     color: '#F0EDE8',
     lineHeight: 1.3,
+  },
+  roleSub: {
+    color: '#E8FF5A',
+    marginTop: '-4px',
   },
   bio: {
     color: '#808080',

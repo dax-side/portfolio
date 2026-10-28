@@ -28,6 +28,17 @@ const skillGroups = [
     ],
   },
   {
+    id: 'skills-testing',
+    category: 'Testing & Evaluation',
+    items: [
+      { name: 'Vitest & Jest',      detail: 'Unit and integration suites' },
+      { name: 'pytest & Go testing', detail: 'Suites in Python and Go codebases' },
+      { name: 'k6',                 detail: 'Load testing at 200 concurrent users' },
+      { name: 'Docker test images', detail: 'Suites that run offline as a non-root user' },
+      { name: 'Claude Code',        detail: 'Agent-assisted review of specs and tests' },
+    ],
+  },
+  {
     id: 'skills-frontend',
     category: 'Frontend',
     items: [
