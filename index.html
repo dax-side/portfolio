@@ -19,7 +19,16 @@
     <meta name="twitter:image" content="https://damola.me/og.png" />
     <!-- Canonical URL -->
     <link rel="canonical" href="https://damola.me/" />
-    <meta name="theme-color" content="#0A0A0A" />
+    <meta name="theme-color" content="#F0EDE8" />
+    <script>
+      // Apply a saved dark theme before the page paints (the nav toggle saves it).
+      try {
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.dataset.theme = 'dark'
+          document.querySelector('meta[name="theme-color"]').content = '#0A0A0A'
+        }
+      } catch (e) {}
+    </script>
     <title>Damola Adegbite — Backend/DevOps Engineer | Node.js & TypeScript</title>
     <!-- Structured data -->
     <script type="application/ld+json">

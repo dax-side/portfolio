@@ -169,7 +169,7 @@ export default function Work() {
 
         {/* ── Projects ──────────────────────────────────────────── */}
         <motion.div 
-          style={{ ...styles.blockHeader, marginTop: 'var(--space-3xl)' }}
+          style={{ ...styles.blockHeader, marginTop: 'var(--space-2xl)' }}
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -241,11 +241,11 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     gap: '16px',
-    marginBottom: 'var(--space-2xl)',
+    marginBottom: 'var(--space-xl)',
   },
-  sectionIndex: { color: '#A0A0A0' },
-  heading:      { color: '#F0EDE8' },
-  subtext:      { color: '#808080', lineHeight: 1.6 },
+  sectionIndex: { color: 'var(--color-text-muted)' },
+  heading:      { color: 'var(--color-text-primary)' },
+  subtext:      { color: 'var(--color-text-secondary)', lineHeight: 1.6 },
 
   pkgList: { display: 'flex', flexDirection: 'column' },
   pkgItem: {
@@ -258,33 +258,33 @@ const styles = {
   },
   pkgBody:    { flex: 1, display: 'flex', flexDirection: 'column', gap: '8px' },
   pkgTop:     { display: 'flex', alignItems: 'baseline', gap: '16px', flexWrap: 'wrap' },
-  pkgName:    { color: '#F0EDE8', letterSpacing: '0.04em' },
-  pkgTagline: { color: '#E8FF5A', letterSpacing: '0.06em' },
-  pkgDesc:    { color: '#808080', maxWidth: '540px' },
+  pkgName:    { color: 'var(--color-text-primary)', letterSpacing: '0.04em' },
+  pkgTagline: { color: 'var(--color-accent-text)', letterSpacing: '0.06em' },
+  pkgDesc:    { color: 'var(--color-text-secondary)', maxWidth: '540px' },
   pkgLinks:   { display: 'flex', gap: '8px', alignItems: 'center', flexShrink: 0 },
   pkgLinkBtn: { fontSize: '0.7rem', padding: '8px 14px' },
 
   grid: {
     display: 'grid',
     gap: '1px',
-    backgroundColor: '#1F1F1F',
+    backgroundColor: 'var(--color-border)',
   },
   card: {
     display: 'flex',
     flexDirection: 'column',
     gap: '24px',
-    backgroundColor: '#111111',
+    backgroundColor: 'var(--color-surface)',
   },
   cardHeader: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  cardIndex:   { color: '#A0A0A0' },
+  cardIndex:   { color: 'var(--color-text-muted)' },
   cardBody:    { flex: 1, display: 'flex', flexDirection: 'column', gap: '16px' },
-  projectName: { color: '#F0EDE8', marginBottom: '4px' },
-  tagline:     { color: '#E8FF5A', letterSpacing: '0.06em' },
-  description: { color: '#808080', lineHeight: 1.7 },
+  projectName: { color: 'var(--color-text-primary)', marginBottom: '4px' },
+  tagline:     { color: 'var(--color-accent-text)', letterSpacing: '0.06em' },
+  description: { color: 'var(--color-text-secondary)', lineHeight: 1.7 },
   cardFooter: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -292,10 +292,10 @@ const styles = {
     flexWrap: 'wrap',
     gap: '12px',
     paddingTop: '16px',
-    borderTop: '1px solid #1F1F1F',
+    borderTop: '1px solid var(--color-border)',
   },
   tags:      { display: 'flex', flexWrap: 'wrap', gap: '6px' },
   cardLinks: { display: 'flex', gap: '8px', alignItems: 'center' },
-  cardNote:  { color: '#A0A0A0' },
+  cardNote:  { color: 'var(--color-text-muted)' },
   smallBtn:  { fontSize: '0.7rem', padding: '8px 14px' },
 }

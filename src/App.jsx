@@ -39,7 +39,7 @@ export default function App() {
 
 const styles = {
   footer: {
-    borderTop: '1px solid #1F1F1F',
+    borderTop: '1px solid var(--color-border)',
     padding: '24px 0',
   },
   footerInner: {
@@ -47,6 +47,6 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  footerLeft:  { color: '#A0A0A0' },
-  footerRight: { color: '#A0A0A0' },
+  footerLeft:  { color: 'var(--color-text-muted)' },
+  footerRight: { color: 'var(--color-text-muted)' },
 }

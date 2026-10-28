@@ -102,20 +102,26 @@
 /* ─── Design tokens ─────────────────────────────────────── */
 
 :root {
-  /* Colors */
-  --color-primary:        #0A0A0A;
-  --color-surface:        #111111;
-  --color-surface-raised: #161616;
-  --color-border:         #1F1F1F;
-  --color-border-subtle:  #161616;
-  --color-text-primary:   #F0EDE8;
-  --color-text-secondary: #808080;
-  --color-text-muted:     #A0A0A0;
+  /* Colors: light by default; the nav toggle switches to the dark palette below. */
+  color-scheme: light;
+  --color-primary:        #F0EDE8;
+  --color-surface:        #F8F6F2;
+  --color-surface-raised: #FFFFFF;
+  --color-border:         #D9D3C8;
+  --color-border-subtle:  #E4DFD6;
+  --color-text-primary:   #0A0A0A;
+  --color-text-secondary: #5F5A52;
+  --color-text-muted:     #57524A;
   --color-accent:         #E8FF5A;
   --color-accent-hover:   #D4E840;
-  --color-accent-dim:     #2A2E0A;
+  --color-accent-dim:     #E6F0B8;
+  --color-accent-text:    #4F6300; /* lime is unreadable as text on cream */
+  --color-accent-edge:    #0A0A0A; /* outlines lime shapes so they stand out on cream */
   --color-on-accent:      #0A0A0A;
-  --color-destructive:    #FF4545;
+  --color-destructive:    #C62828;
+  --color-track:          #CFC8BC;
+  --color-nav:            rgba(240, 237, 232, 0.95);
+  --color-nav-menu:       rgba(240, 237, 232, 0.98);
 
   /* Spacing — 8px base */
   --space-xs:   4px;
@@ -142,6 +148,25 @@
   /* Layout */
   --max-width: 1200px;
   --side-padding: clamp(20px, 5vw, 80px);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-primary:        #0A0A0A;
+  --color-surface:        #111111;
+  --color-surface-raised: #161616;
+  --color-border:         #1F1F1F;
+  --color-border-subtle:  #161616;
+  --color-text-primary:   #F0EDE8;
+  --color-text-secondary: #808080;
+  --color-text-muted:     #A0A0A0;
+  --color-accent-dim:     #2A2E0A;
+  --color-accent-text:    #E8FF5A;
+  --color-accent-edge:    transparent;
+  --color-destructive:    #FF4545;
+  --color-track:          #3A3A3A;
+  --color-nav:            rgba(10, 10, 10, 0.95);
+  --color-nav-menu:       rgba(10, 10, 10, 0.98);
 }
 
 
@@ -270,7 +295,7 @@ ul, ol {
 }
 
 .section {
-  padding: var(--space-4xl) 0;
+  padding: clamp(56px, 7vw, 88px) 0;
   border-top: 1px solid var(--color-border);
 }
 
@@ -285,8 +310,9 @@ ul, ol {
   font-weight: 400;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 12px 24px;
+  padding: 11px 23px;
   border-radius: var(--radius-none);
+  border: 1px solid var(--color-accent-edge);
   transition: background-color 150ms ease-out;
 }
 
@@ -335,7 +361,7 @@ ul, ol {
   display: inline-flex;
   align-items: center;
   background-color: var(--color-accent-dim);
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 400;
@@ -378,7 +404,7 @@ ul, ol {
 .list-item:hover {
   background-color: var(--color-surface);
   padding-left: 16px;
-  border-left-color: var(--color-accent);
+  border-left-color: var(--color-accent-text);
 }
 
 .input {
@@ -392,7 +418,7 @@ ul, ol {
   border-radius: var(--radius-none);
   border: 1px solid var(--color-border);
   outline: none;
-  caret-color: var(--color-accent);
+  caret-color: var(--color-accent-text);
   transition: border-color 150ms ease-out;
 }
 
@@ -419,7 +445,7 @@ ul, ol {
 }
 
 .nav-link.active {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 ::-webkit-scrollbar {
@@ -441,6 +467,21 @@ ul, ol {
 ::selection {
   background-color: var(--color-accent);
   color: var(--color-on-accent);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  transition: background-color 150ms ease-out;
+}
+
+.theme-toggle:hover {
+  background-color: var(--color-surface);
 }
 
 /* ─── Mobile Nav ──────────────────────────────────────── */

@@ -102,7 +102,7 @@ export default function Playground() {
             <div style={styles.stats}>
               <span className="type-label" style={styles.stat}>SENT <b style={styles.statValue}>{stats.sent}</b></span>
               <span className="type-label" style={styles.stat}>ALLOWED <b style={styles.statValue}>{stats.allowed}</b></span>
-              <span className="type-label" style={styles.stat}>BLOCKED <b style={{ ...styles.statValue, color: '#FF4545' }}>{stats.blocked}</b></span>
+              <span className="type-label" style={styles.stat}>BLOCKED <b style={{ ...styles.statValue, color: 'var(--color-destructive)' }}>{stats.blocked}</b></span>
             </div>
           </div>
 
@@ -115,7 +115,7 @@ export default function Playground() {
               {log.map(line => (
                 <li key={line.id} style={styles.logLine}>
                   <span className="type-label" style={styles.logTime}>{line.time}</span>
-                  <span className="type-label" style={{ color: line.allowed ? '#E8FF5A' : '#FF4545' }}>{line.status}</span>
+                  <span className="type-label" style={{ color: line.allowed ? 'var(--color-accent-text)' : 'var(--color-destructive)' }}>{line.status}</span>
                   <span className="type-label" style={styles.logDetail}>{line.detail}</span>
                 </li>
               ))}
@@ -133,11 +133,11 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     gap: '16px',
-    marginBottom: 'var(--space-2xl)',
+    marginBottom: 'var(--space-xl)',
   },
-  sectionIndex: { color: '#A0A0A0' },
-  heading:      { color: '#F0EDE8' },
-  subtext:      { color: '#808080', lineHeight: 1.6, maxWidth: '620px' },
+  sectionIndex: { color: 'var(--color-text-muted)' },
+  heading:      { color: 'var(--color-text-primary)' },
+  subtext:      { color: 'var(--color-text-secondary)', lineHeight: 1.6, maxWidth: '620px' },
 
   panel: {
     display: 'flex',
@@ -145,7 +145,7 @@ const styles = {
     gap: '20px',
     minHeight: '340px',
   },
-  label: { color: '#E8FF5A' },
+  label: { color: 'var(--color-accent-text)' },
   bucket: {
     display: 'flex',
     gap: '10px',
@@ -154,43 +154,44 @@ const styles = {
     flex: 1,
     maxWidth: '56px',
     height: '56px',
-    border: '1px solid #1F1F1F',
-    backgroundColor: '#0A0A0A',
+    border: '1px solid var(--color-border)',
+    backgroundColor: 'var(--color-primary)',
     display: 'flex',
     alignItems: 'flex-end',
   },
   tokenFill: {
     width: '100%',
-    backgroundColor: '#E8FF5A',
+    backgroundColor: 'var(--color-accent)',
+    boxShadow: '0 0 0 1px var(--color-accent-edge)',
     transition: 'height 100ms linear',
   },
-  level:     { color: '#A0A0A0' },
-  send:      { alignSelf: 'flex-start', cursor: 'pointer', border: 'none' },
-  verdict:   { color: '#FF4545', transition: 'opacity 150ms ease-out' },
+  level:     { color: 'var(--color-text-muted)' },
+  send:      { alignSelf: 'flex-start', cursor: 'pointer' },
+  verdict:   { color: 'var(--color-destructive)', transition: 'opacity 150ms ease-out' },
   stats: {
     display: 'flex',
     flexWrap: 'wrap',
     gap: '8px 24px',
     marginTop: 'auto',
     paddingTop: '16px',
-    borderTop: '1px solid #1F1F1F',
+    borderTop: '1px solid var(--color-border)',
   },
-  stat:      { color: '#A0A0A0' },
-  statValue: { color: '#F0EDE8', fontWeight: 400 },
+  stat:      { color: 'var(--color-text-muted)' },
+  statValue: { color: 'var(--color-text-primary)', fontWeight: 400 },
 
   log: {
     display: 'flex',
     flexDirection: 'column',
     gap: '14px',
   },
-  empty:     { color: '#808080', textTransform: 'none', letterSpacing: '0.02em' },
+  empty:     { color: 'var(--color-text-secondary)', textTransform: 'none', letterSpacing: '0.02em' },
   logLine: {
     display: 'flex',
     flexWrap: 'wrap',
     gap: '6px 16px',
     paddingBottom: '14px',
-    borderBottom: '1px solid #161616',
+    borderBottom: '1px solid var(--color-border-subtle)',
   },
-  logTime:   { color: '#808080' },
-  logDetail: { color: '#A0A0A0', textTransform: 'none', letterSpacing: '0.04em' },
+  logTime:   { color: 'var(--color-text-secondary)' },
+  logDetail: { color: 'var(--color-text-muted)', textTransform: 'none', letterSpacing: '0.04em' },
 }

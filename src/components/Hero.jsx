@@ -30,9 +30,9 @@ function LagosClock() {
 
   return (
     <>
-      <span className="type-label" style={{ color: '#F0EDE8' }}>{now ? lagosTime.format(now) : '--:--'}</span>
-      <span className="type-label" style={{ color: '#A0A0A0' }}>·</span>
-      <span className="type-label" style={{ color: '#F0EDE8' }}>{now ? mood : ''}</span>
+      <span className="type-label" style={{ color: 'var(--color-text-primary)' }}>{now ? lagosTime.format(now) : '--:--'}</span>
+      <span className="type-label" style={{ color: 'var(--color-text-muted)' }}>·</span>
+      <span className="type-label" style={{ color: 'var(--color-text-primary)' }}>{now ? mood : ''}</span>
     </>
   )
 }
@@ -81,7 +81,7 @@ export default function Hero() {
             <p className="type-body-lg" style={styles.bio}>
               4 years building backend systems that run in production. APIs, real-time infrastructure. Now I also build hard coding tasks that test AI coding agents on large open-source codebases. Open to remote roles.
             </p>
-            <p className="type-body-md" style={{ color: '#F0EDE8', fontWeight: 500, marginTop: '8px', marginBottom: '8px' }}>
+            <p className="type-body-md" style={{ color: 'var(--color-text-primary)', fontWeight: 500, marginTop: '8px', marginBottom: '8px' }}>
               Built a CRDT from scratch. Took a system from 48 to 716 req/sec. Three packages on npm.
             </p>
             <div style={styles.ctas}>
@@ -114,11 +114,11 @@ export default function Hero() {
           <div style={styles.statusItem}>
             <span className="type-label" style={styles.statusLabel}>STATUS</span>
             <span style={styles.statusDot} />
-            <span className="type-label" style={{ color: '#E8FF5A' }}>AVAILABLE</span>
+            <span className="type-label" style={{ color: 'var(--color-accent-text)' }}>AVAILABLE</span>
           </div>
           <div style={styles.statusItem}>
             <span className="type-label" style={styles.statusLabel}>FOCUS</span>
-            <span className="type-label" style={{ color: '#F0EDE8' }}>BACKEND · DEVOPS · AI EVALS</span>
+            <span className="type-label" style={{ color: 'var(--color-text-primary)' }}>BACKEND · DEVOPS · AI EVALS</span>
           </div>
           <div style={styles.statusItem}>
             <span className="type-label" style={styles.statusLabel}>LAGOS</span>
@@ -126,7 +126,7 @@ export default function Hero() {
           </div>
           <div style={styles.statusItem}>
             <span className="type-label" style={styles.statusLabel}>STACK</span>
-            <span className="type-label" style={{ color: '#F0EDE8' }}>REACT · TS · NODE.JS</span>
+            <span className="type-label" style={{ color: 'var(--color-text-primary)' }}>REACT · TS · NODE.JS</span>
           </div>
         </motion.div>
 
@@ -137,9 +137,8 @@ export default function Hero() {
 
 const styles = {
   section: {
-    paddingTop: 'var(--space-5xl)',    // MOBILE FIX
-    paddingBottom: 'var(--space-4xl)', // MOBILE FIX
-    minHeight: '100vh',
+    paddingTop: 'calc(64px + clamp(32px, 6vw, 72px))', // clears the fixed nav
+    paddingBottom: 'clamp(40px, 5vw, 64px)',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -147,7 +146,7 @@ const styles = {
   inner: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '48px',
+    gap: '40px',
   },
   indexRow: {
     display: 'flex',
@@ -155,19 +154,19 @@ const styles = {
     gap: '16px',
   },
   index: {
-    color: '#A0A0A0',
+    color: 'var(--color-text-muted)',
     flexShrink: 0,
   },
   line: {
     height: '1px',
     flex: 1,
-    backgroundColor: '#1F1F1F',
+    backgroundColor: 'var(--color-border)',
   },
   nameBlock: {
     maxWidth: '900px',
   },
   name: {
-    color: '#F0EDE8',
+    color: 'var(--color-text-primary)',
   },
   meta: {
     display: 'grid',
@@ -186,18 +185,18 @@ const styles = {
     gap: '24px',
   },
   label: {
-    color: '#A0A0A0',
+    color: 'var(--color-text-muted)',
   },
   role: {
-    color: '#F0EDE8',
+    color: 'var(--color-text-primary)',
     lineHeight: 1.3,
   },
   roleSub: {
-    color: '#E8FF5A',
+    color: 'var(--color-accent-text)',
     marginTop: '-4px',
   },
   bio: {
-    color: '#808080',
+    color: 'var(--color-text-secondary)',
     maxWidth: '480px',
   },
   ctas: {
@@ -207,7 +206,7 @@ const styles = {
   },
   statusBar: {
     paddingTop: '24px',
-    borderTop: '1px solid #1F1F1F',
+    borderTop: '1px solid var(--color-border)',
   },
   statusItem: {
     display: 'flex',
@@ -215,13 +214,14 @@ const styles = {
     gap: '8px',
   },
   statusLabel: {
-    color: '#A0A0A0',
+    color: 'var(--color-text-muted)',
   },
   statusDot: {
     width: '5px',
     height: '5px',
     borderRadius: '50%',
-    backgroundColor: '#E8FF5A',
+    backgroundColor: 'var(--color-accent)',
+    boxShadow: '0 0 0 1px var(--color-accent-edge)',
     flexShrink: 0,
   },
 }
