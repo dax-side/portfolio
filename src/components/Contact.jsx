@@ -54,7 +54,7 @@ export default function Contact() {
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
           >
-            <span className="type-label" style={styles.index}>05 / CONTACT</span>
+            <span className="type-label" style={styles.index}>06 / CONTACT</span>
             <h2 className="type-h2" style={styles.heading}>
               Open to remote roles.<br />
               <span style={styles.accentText}>Say hello.</span>

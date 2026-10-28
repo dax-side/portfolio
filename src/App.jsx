@@ -2,6 +2,7 @@ import Nav from './components/Nav'
 import Hero from './components/Hero'
 import Work from './components/Work'
 import Skills from './components/Skills'
+import Playground from './components/Playground'
 import Writing from './components/Writing'
 import Contact from './components/Contact'
 import './index.css'
@@ -14,6 +15,7 @@ export default function App() {
         <Hero />
         <Work />
         <Skills />
+        <Playground />
         <Writing />
         <Contact />
       </main>

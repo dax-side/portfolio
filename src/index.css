@@ -496,6 +496,19 @@ ul, ol {
   }
 }
 
+.playground-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background-color: var(--color-border);
+}
+
+@media (max-width: 768px) {
+  .playground-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .hero-stats {
   display: flex;
   flex-direction: row;
