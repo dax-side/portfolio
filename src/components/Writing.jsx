@@ -49,9 +49,6 @@ export default function Writing() {
           viewport={{ once: true, margin: "-80px" }}
         >
           <h2 className="type-h2" style={styles.heading}>Writing</h2>
-          <p className="type-body-md" style={styles.subtext}>
-            Engineering thinking, in plain language.
-          </p>
         </motion.div>
 
         <motion.ul
@@ -109,7 +106,6 @@ const styles = {
     marginBottom: 'var(--space-xl)',
   },
   heading:      { color: 'var(--color-text-primary)' },
-  subtext:      { color: 'var(--color-text-secondary)', lineHeight: 1.6 },
 
   item: {
     padding: 0,
