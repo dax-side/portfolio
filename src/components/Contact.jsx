@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { fadeUp } from '../lib/transitions'
+import Wave from './Wave'
 
 const CONTACT_LINKS = [
   {
@@ -81,6 +82,8 @@ export default function Contact() {
                 </li>
               ))}
             </ul>
+
+            <Wave />
           </motion.div>
 
           {/* Right — form */}
