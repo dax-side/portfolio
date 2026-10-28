@@ -38,41 +38,64 @@ const packages = [
 
 const projects = [
   {
-    id: 'proj-collab',
+    id: 'proj-evals',
     index: '01',
+    name: 'AI Coding-Agent Evaluation',
+    tagline: 'Independent contributor · Shipd',
+    description:
+      'I design hard, fair coding tasks inside large open-source codebases.',
+    tags: ['TypeScript', 'Go', 'Python', 'Docker', 'GitHub Actions', 'Claude Code'],
+    badge: 'NOW',
+    links: {},
+    note: 'Task details are confidential',
+  },
+  {
+    id: 'proj-collab',
+    index: '02',
     name: 'CollabEdit',
     tagline: 'Real-time collaborative editor',
     description:
       'Custom RGA-based CRDT, built from scratch. No Yjs, no Automerge. Tombstone retention handles late-arriving ops. A per-document operation queue fixes paste scrambling across clients.',
     tags: ['Node.js', 'TypeScript', 'WebSocket', 'PostgreSQL', 'Prisma', 'React'],
-    accent: true,
+    badge: 'FEATURED',
     links: {
       live:   'https://collab-edit-pink.vercel.app/',
       github: 'https://github.com/dax-side/collab_edit',
     },
   },
   {
+    id: 'proj-shop',
+    index: '03',
+    name: 'Oja Supply Co.',
+    tagline: 'Online shop + mobile app',
+    description:
+      'A shop for household goods from Lagos workshops, on the web and on iOS and Android. Paystack payments (card, bank transfer, USSD) confirmed by webhook, prices set on the server, Google sign-in, and one bag shared live between the website and the app.',
+    tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Drizzle', 'Paystack', 'Expo'],
+    links: {
+      live:   'https://shop-six-red.vercel.app/',
+      github: 'https://github.com/dax-side/shop',
+    },
+  },
+  {
     id: 'proj-ecommerce',
-    index: '02',
+    index: '04',
     name: 'E-commerce Microservices API',
     tagline: '48 → 716 req/sec',
     description:
       'Throughput went from 48 to 716 req/sec. Redis caching, MongoDB connection pooling, and targeted index fixes got it there. Load tested with k6 at 200 concurrent users.',
     tags: ['Node.js', 'TypeScript', 'MongoDB', 'Redis', 'Docker', 'Nginx', 'Prometheus'],
-    accent: false,
     links: {
       github: 'https://github.com/dax-side/ecommerce-microservices-api',
     },
   },
   {
     id: 'proj-crossPay',
-    index: '03',
+    index: '05',
     name: 'CrossPay',
     tagline: 'Cross-border remittance on-chain',
     description:
       'Personal project. GBP in, USDC out on Polygon. Stripe handles the fiat side. WebSocket keeps transaction state live. Built to understand cross-border payment infrastructure end to end.',
     tags: ['Node.js', 'TypeScript', 'PostgreSQL', 'Stripe', 'Polygon', 'Socket.io'],
-    accent: false,
     links: {
       live:   'https://cross-payment-five.vercel.app/',
       github: 'https://github.com/dax-side/cross_payment',
@@ -80,14 +103,14 @@ const projects = [
   },
   {
     id: 'proj-hoh',
-    index: '04',
+    index: '06',
     name: 'Heart of House',
     tagline: 'B2B marketplace',
     description:
       'Backend for a B2B marketplace. Liquor stores, vendors, real-time messaging via Socket.io, inventory management, automated rewards system, and AWS S3 for invoice storage.',
     tags: ['Node.js', 'TypeScript', 'Express', 'MongoDB', 'Socket.io', 'AWS S3'],
-    accent: false,
     links: {},
+    note: 'Private client project',
   },
 ]
 
@@ -154,7 +177,7 @@ export default function Work() {
         >
           <h2 className="type-h2" style={styles.heading}>Projects</h2>
           <p className="type-body-md" style={styles.subtext}>
-            APIs, databases, real-time systems. Deployed and running.
+            APIs, real-time systems and full products, plus my current work on AI agent evaluation.
           </p>
         </motion.div>
 
@@ -169,8 +192,8 @@ export default function Work() {
             <motion.article key={project.id} id={project.id} className="card" style={styles.card} variants={fadeUp}>
               <div style={styles.cardHeader}>
                 <span className="type-label" style={styles.cardIndex}>{project.index}</span>
-                {project.accent && (
-                  <span className="tag-accent">FEATURED</span>
+                {project.badge && (
+                  <span className="tag-accent">{project.badge}</span>
                 )}
               </div>
 
@@ -198,6 +221,9 @@ export default function Work() {
                     <a id={`${project.id}-gh`} href={project.links.github}
                       className="btn-ghost" style={styles.smallBtn}
                       target="_blank" rel="noopener noreferrer">CODE</a>
+                  )}
+                  {project.note && (
+                    <span className="type-label" style={styles.cardNote}>{project.note}</span>
                   )}
                 </div>
               </div>
@@ -269,6 +295,7 @@ const styles = {
     borderTop: '1px solid #1F1F1F',
   },
   tags:      { display: 'flex', flexWrap: 'wrap', gap: '6px' },
-  cardLinks: { display: 'flex', gap: '8px' },
+  cardLinks: { display: 'flex', gap: '8px', alignItems: 'center' },
+  cardNote:  { color: '#A0A0A0' },
   smallBtn:  { fontSize: '0.7rem', padding: '8px 14px' },
 }

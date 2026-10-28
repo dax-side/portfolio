@@ -23,7 +23,7 @@ export default function App() {
             © 2026 DAMOLA ADEGBITE
           </span>
           <span className="type-label" style={styles.footerRight}>
-            BACKEND · NODE.JS · DEVOPS
+            BACKEND · DEVOPS · AI EVALS
           </span>
         </div>
       </footer>
