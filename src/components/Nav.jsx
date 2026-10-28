@@ -9,7 +9,7 @@ export default function Nav() {
     const onScroll = () => {
       setScrolled(window.scrollY > 40)
 
-      const sections = ['home', 'work', 'skills', 'writing', 'contact']
+      const sections = ['home', 'work', 'skills', 'playground', 'writing', 'contact']
       for (const id of sections) {
         const el = document.getElementById(id)
         if (!el) continue
@@ -34,6 +34,7 @@ export default function Nav() {
     { id: 'home',    label: 'Home' },
     { id: 'work',    label: 'Work' },
     { id: 'skills',  label: 'Skills' },
+    { id: 'playground', label: 'Playground' },
     { id: 'writing', label: 'Writing' },
     { id: 'contact', label: 'Contact' },
   ]

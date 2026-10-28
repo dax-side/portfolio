@@ -52,7 +52,7 @@ export default function Writing() {
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
         >
-          <span className="type-label" style={styles.sectionIndex}>04 / WRITING</span>
+          <span className="type-label" style={styles.sectionIndex}>05 / WRITING</span>
           <h2 className="type-h2" style={styles.heading}>Writing</h2>
           <p className="type-body-md" style={styles.subtext}>
             Engineering thinking, in plain language.
