@@ -113,11 +113,11 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     gap: '16px',
-    marginBottom: 'var(--space-2xl)',
+    marginBottom: 'var(--space-xl)',
   },
-  sectionIndex: { color: '#A0A0A0' },
-  heading:      { color: '#F0EDE8' },
-  subtext:      { color: '#808080', lineHeight: 1.6 },
+  sectionIndex: { color: 'var(--color-text-muted)' },
+  heading:      { color: 'var(--color-text-primary)' },
+  subtext:      { color: 'var(--color-text-secondary)', lineHeight: 1.6 },
 
   item: {
     padding: 0,
@@ -132,7 +132,7 @@ const styles = {
     color: 'inherit',
   },
   index: {
-    color: '#A0A0A0',
+    color: 'var(--color-text-muted)',
     flexShrink: 0,
     paddingTop: '4px',
     width: '32px',
@@ -153,18 +153,18 @@ const styles = {
     padding: '3px 8px',
   },
   date: {
-    color: '#A0A0A0',
+    color: 'var(--color-text-muted)',
   },
   title: {
-    color: '#F0EDE8',
+    color: 'var(--color-text-primary)',
     transition: 'color 150ms ease-out',
   },
   desc: {
-    color: '#808080',
+    color: 'var(--color-text-secondary)',
     maxWidth: '680px',
   },
   arrow: {
-    color: '#808080',
+    color: 'var(--color-text-secondary)',
     fontFamily: "'Space Mono', monospace",
     fontSize: '1rem',
     flexShrink: 0,

@@ -44,7 +44,7 @@ export default function Contact() {
   const isDisabled = status === 'submitting' || status === 'succeeded'
 
   return (
-    <section id="contact" className="section" style={styles.section}>
+    <section id="contact" className="section">
       <div className="container">
         <div style={styles.layout}>
 
@@ -193,7 +193,6 @@ export default function Contact() {
 }
 
 const styles = {
-  section: { paddingBottom: 'var(--space-5xl)' },
   layout: {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
@@ -205,10 +204,10 @@ const styles = {
     flexDirection: 'column',
     gap: '32px',
   },
-  index:      { color: '#A0A0A0' },
-  heading:    { color: '#F0EDE8', lineHeight: 1.1 },
-  accentText: { color: '#E8FF5A' },
-  body:       { color: '#808080', maxWidth: '360px' },
+  index:      { color: 'var(--color-text-muted)' },
+  heading:    { color: 'var(--color-text-primary)', lineHeight: 1.1 },
+  accentText: { color: 'var(--color-accent-text)' },
+  body:       { color: 'var(--color-text-secondary)', maxWidth: '360px' },
   links:      { marginTop: '8px' },
   linkItem:   { padding: 0, cursor: 'pointer' },
   linkInner: {
@@ -219,19 +218,19 @@ const styles = {
     padding: '20px 0',
     color: 'inherit',
   },
-  linkLabel:  { color: '#A0A0A0', width: '72px', flexShrink: 0 },
-  linkHandle: { color: '#F0EDE8', flex: 1, fontSize: '0.9rem' },
-  arrow:      { color: '#808080', fontSize: '1rem', fontFamily: "'Space Mono', monospace" },
+  linkLabel:  { color: 'var(--color-text-muted)', width: '72px', flexShrink: 0 },
+  linkHandle: { color: 'var(--color-text-primary)', flex: 1, fontSize: '0.9rem' },
+  arrow:      { color: 'var(--color-text-secondary)', fontSize: '1rem', fontFamily: "'Space Mono', monospace" },
   right:      {},
   formCard: {
-    border: '1px solid #1F1F1F',
+    border: '1px solid var(--color-border)',
     padding: 'clamp(20px, 5vw, 40px)',
     display: 'flex',
     flexDirection: 'column',
     gap: '32px',
-    backgroundColor: '#111111',
+    backgroundColor: 'var(--color-surface)',
   },
-  formLabel: { color: '#A0A0A0' },
+  formLabel: { color: 'var(--color-text-muted)' },
   form: {
     display: 'flex',
     flexDirection: 'column',
@@ -247,7 +246,7 @@ const styles = {
     flexDirection: 'column',
     gap: '8px',
   },
-  fieldLabel: { color: '#A0A0A0' },
+  fieldLabel: { color: 'var(--color-text-muted)' },
   textarea: {
     resize: 'vertical',
     minHeight: '120px',
@@ -257,6 +256,6 @@ const styles = {
     alignSelf: 'flex-start',
     transition: 'background-color 150ms ease-out',
   },
-  successMsg: { color: '#E8FF5A', letterSpacing: '0.06em' },
-  errorMsg:   { color: '#FF5A5A', letterSpacing: '0.06em' },
+  successMsg: { color: 'var(--color-accent-text)', letterSpacing: '0.06em' },
+  errorMsg:   { color: 'var(--color-destructive)', letterSpacing: '0.06em' },
 }

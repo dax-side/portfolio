@@ -9,7 +9,7 @@ const STEPS = [
   { name: 'deploy',  ms: 900, note: 'damola.me' },
 ]
 const TOTAL_MS = STEPS.reduce((total, step) => total + step.ms, 0)
-const CONFETTI_COLORS = ['#E8FF5A', '#F0EDE8', '#D4E840']
+const CONFETTI_COLORS = ['#E8FF5A', 'var(--color-text-primary)', '#D4E840']
 
 export default function ShipIt() {
   const [phase, setPhase] = useState('idle')
@@ -140,22 +140,22 @@ const styles = {
     flexWrap: 'wrap',
     gap: '16px',
   },
-  prompt:   { color: '#A0A0A0' },
-  button:   { cursor: 'pointer', border: 'none', fontSize: '0.75rem', padding: '10px 18px' },
+  prompt:   { color: 'var(--color-text-muted)' },
+  button:   { cursor: 'pointer', fontSize: '0.75rem', padding: '9px 17px' },
   terminal: {
     display: 'flex',
     flexDirection: 'column',
     gap: '10px',
     padding: '20px 24px',
-    backgroundColor: '#111111',
-    border: '1px solid #1F1F1F',
+    backgroundColor: 'var(--color-surface)',
+    border: '1px solid var(--color-border)',
   },
-  command:  { color: '#F0EDE8', textTransform: 'none' },
+  command:  { color: 'var(--color-text-primary)', textTransform: 'none' },
   line:     { display: 'flex', gap: '24px' },
-  step:     { color: '#A0A0A0', textTransform: 'none', minWidth: '72px' },
-  ok:       { color: '#E8FF5A', textTransform: 'none' },
-  running:  { color: '#808080', textTransform: 'none' },
-  shipped:  { color: '#F0EDE8', textTransform: 'none', marginTop: '6px' },
+  step:     { color: 'var(--color-text-muted)', textTransform: 'none', minWidth: '72px' },
+  ok:       { color: 'var(--color-accent-text)', textTransform: 'none' },
+  running:  { color: 'var(--color-text-secondary)', textTransform: 'none' },
+  shipped:  { color: 'var(--color-text-primary)', textTransform: 'none', marginTop: '6px' },
   burstLayer: {
     position: 'fixed',
     inset: 0,

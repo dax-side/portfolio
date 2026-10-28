@@ -60,10 +60,10 @@ const styles = {
   button: {
     cursor: 'pointer',
     background: 'none',
-    color: '#F0EDE8',
+    color: 'var(--color-text-primary)',
     fontFamily: 'var(--font-mono)',
     padding: '10px 16px',
   },
   hand: { display: 'inline-block', transformOrigin: '70% 70%', fontSize: '1rem' },
-  count: { color: '#A0A0A0' },
+  count: { color: 'var(--color-text-muted)' },
 }
