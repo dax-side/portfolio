@@ -535,6 +535,13 @@ ul, ol {
   }
 }
 
+/* ─── Ship it ─────────────────────────────────────────── */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.35; }
+}
+.pulse { animation: pulse 0.9s ease-in-out infinite; }
+
 /* ─── Print ───────────────────────────────────────────── */
 /* Scroll-in animations never run on a printed page: show everything. */
 @media print {

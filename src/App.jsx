@@ -5,6 +5,7 @@ import Skills from './components/Skills'
 import Playground from './components/Playground'
 import Writing from './components/Writing'
 import Contact from './components/Contact'
+import ShipIt from './components/ShipIt'
 import './index.css'
 
 export default function App() {
@@ -20,6 +21,9 @@ export default function App() {
         <Contact />
       </main>
       <footer style={styles.footer}>
+        <div className="container">
+          <ShipIt />
+        </div>
         <div className="container" style={styles.footerInner}>
           <span className="type-label" style={styles.footerLeft}>
             © 2026 DAMOLA ADEGBITE
