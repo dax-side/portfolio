@@ -1,5 +1,41 @@
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { fadeUp } from '../lib/transitions'
+
+const lagosTime = new Intl.DateTimeFormat('en-GB', { timeZone: 'Africa/Lagos', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' })
+const lagosHour = new Intl.DateTimeFormat('en-GB', { timeZone: 'Africa/Lagos', hour: 'numeric', hourCycle: 'h23' })
+
+const moods = [
+  [6,  'ASLEEP. OR SHIPPING'],
+  [9,  'COFFEE, THEN CODE'],
+  [12, 'DEEP IN A CODEBASE'],
+  [14, 'LUNCH, THEN REVIEWS'],
+  [18, 'PROBABLY DEBUGGING'],
+  [21, 'READING OR WRITING'],
+  [24, 'LATE-NIGHT DEPLOYS'],
+]
+
+function LagosClock() {
+  const [now, setNow] = useState(null)
+
+  useEffect(() => {
+    const tick = () => setNow(new Date())
+    const first = setTimeout(tick, 0)
+    const timer = setInterval(tick, 30000)
+    return () => { clearTimeout(first); clearInterval(timer) }
+  }, [])
+
+  const hour = now ? Number(lagosHour.format(now)) : 0
+  const mood = moods.find(([until]) => hour < until)[1]
+
+  return (
+    <>
+      <span className="type-label" style={{ color: '#F0EDE8' }}>{now ? lagosTime.format(now) : '--:--'}</span>
+      <span className="type-label" style={{ color: '#A0A0A0' }}>·</span>
+      <span className="type-label" style={{ color: '#F0EDE8' }}>{now ? mood : ''}</span>
+    </>
+  )
+}
 
 export default function Hero() {
   return (
@@ -85,8 +121,8 @@ export default function Hero() {
             <span className="type-label" style={{ color: '#F0EDE8' }}>BACKEND · DEVOPS · AI EVALS</span>
           </div>
           <div style={styles.statusItem}>
-            <span className="type-label" style={styles.statusLabel}>PACKAGES</span>
-            <span className="type-label" style={{ color: '#F0EDE8' }}>3 ON NPM</span>
+            <span className="type-label" style={styles.statusLabel}>LAGOS</span>
+            <LagosClock />
           </div>
           <div style={styles.statusItem}>
             <span className="type-label" style={styles.statusLabel}>STACK</span>
