@@ -38,7 +38,7 @@ const posts = [
 
 export default function Writing() {
   return (
-    <section id="writing" className="section section-band">
+    <section id="writing" className="section">
       <div className="container">
 
         <motion.div 
