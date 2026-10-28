@@ -3,8 +3,9 @@ import { useEffect, useState } from 'react'
 // Lagos is UTC+1 all year (no daylight saving).
 const LAGOS_OFFSET = 60
 const DAY = 24 * 60
-// A 9-to-5 in each person's own time, in minutes after midnight.
-const WORK_DAY = [9 * 60, 17 * 60]
+// Working hours in minutes after midnight: a 9-to-5 for the visitor, 9am to 7pm in Lagos for me.
+const YOUR_DAY = [9 * 60, 17 * 60]
+const MY_DAY = [9 * 60, 19 * 60]
 const TICKS = ['00', '06', '12', '18', '24']
 
 const localTime = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', hourCycle: 'h23' })
@@ -52,11 +53,12 @@ export default function WorkingHours() {
   // How far the visitor's clock runs ahead of Lagos, in minutes; everything below is in the visitor's time.
   const ahead = -now.getTimezoneOffset() - LAGOS_OFFSET
   const rows = [
-    ['YOU', [WORK_DAY]],
-    ['ME',  wrap([WORK_DAY[0] + ahead, WORK_DAY[1] + ahead])],
+    ['YOU', [YOUR_DAY]],
+    ['ME',  wrap([MY_DAY[0] + ahead, MY_DAY[1] + ahead])],
   ]
   const shared = intersect(rows[0][1], rows[1][1])
-  const sharedHours = Math.round(shared.reduce((sum, [s, e]) => sum + e - s, 0) / 6) / 10
+  const sharedMinutes = shared.reduce((sum, [s, e]) => sum + e - s, 0)
+  const sharedHours = Math.round(sharedMinutes / 6) / 10
   const minute = now.getHours() * 60 + now.getMinutes()
 
   const where = city && city !== 'Lagos' ? `You're in ${city}. ` : ''
@@ -65,8 +67,10 @@ export default function WorkingHours() {
     verdict = <>You're in Lagos too, so we share <span style={styles.accent}>the whole working day</span>.</>
   } else if (ahead === 0) {
     verdict = <>{where}Same time as Lagos, so we share <span style={styles.accent}>the whole working day</span>.</>
+  } else if (sharedMinutes === YOUR_DAY[1] - YOUR_DAY[0]) {
+    verdict = <>{where}We share <span style={styles.accent}>your whole working day</span>.</>
   } else if (sharedHours === 0) {
-    const myTime = ((WORK_DAY[0] - ahead) % DAY + DAY) % DAY
+    const myTime = ((YOUR_DAY[0] - ahead) % DAY + DAY) % DAY
     verdict = <>{where}Our working days don't overlap: your 9am is my {twelveHour(myTime)}.</>
   } else {
     verdict = <>{where}We share <span style={styles.accent}>{sharedHours} working {sharedHours === 1 ? 'hour' : 'hours'}</span> a day.</>
