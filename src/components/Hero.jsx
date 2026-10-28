@@ -51,12 +51,6 @@ export default function Hero() {
         animate="visible"
       >
 
-        {/* Index label */}
-        <div style={styles.indexRow}>
-          <span className="type-label" style={styles.index}>01 / INTRO</span>
-          <span style={styles.line} />
-        </div>
-
         {/* Display name */}
         <div style={styles.nameBlock}>
           <h1 className="type-display" style={styles.name}>
@@ -147,20 +141,6 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     gap: '40px',
-  },
-  indexRow: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '16px',
-  },
-  index: {
-    color: 'var(--color-text-muted)',
-    flexShrink: 0,
-  },
-  line: {
-    height: '1px',
-    flex: 1,
-    backgroundColor: 'var(--color-border)',
   },
   nameBlock: {
     maxWidth: '900px',

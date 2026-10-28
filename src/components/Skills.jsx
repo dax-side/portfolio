@@ -63,7 +63,6 @@ export default function Skills() {
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
         >
-          <span className="type-label" style={styles.sectionIndex}>03 / SKILLS</span>
           <h2 className="type-h2" style={styles.heading}>Tools I use in production.</h2>
         </motion.div>
 
@@ -103,7 +102,6 @@ const styles = {
     gap: '16px',
     marginBottom: 'var(--space-xl)',
   },
-  sectionIndex: { color: 'var(--color-text-muted)' },
   heading:      { color: 'var(--color-text-primary)' },
   groups: {
     display: 'grid',

@@ -56,7 +56,6 @@ export default function Contact() {
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
           >
-            <span className="type-label" style={styles.index}>06 / CONTACT</span>
             <h2 className="type-h2" style={styles.heading}>
               Open to remote roles.<br />
               <span style={styles.accentText}>Say hello.</span>
@@ -204,7 +203,6 @@ const styles = {
     flexDirection: 'column',
     gap: '32px',
   },
-  index:      { color: 'var(--color-text-muted)' },
   heading:    { color: 'var(--color-text-primary)', lineHeight: 1.1 },
   accentText: { color: 'var(--color-accent-text)' },
   body:       { color: 'var(--color-text-secondary)', maxWidth: '360px' },

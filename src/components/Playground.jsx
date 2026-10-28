@@ -63,7 +63,6 @@ export default function Playground() {
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
         >
-          <span className="type-label" style={styles.sectionIndex}>04 / PLAYGROUND</span>
           <h2 className="type-h2" style={styles.heading}>Try to DDoS me.</h2>
           <p className="type-body-md" style={styles.subtext}>
             This button sits behind a token bucket rate limiter, the kind I put in front of APIs.
@@ -135,7 +134,6 @@ const styles = {
     gap: '16px',
     marginBottom: 'var(--space-xl)',
   },
-  sectionIndex: { color: 'var(--color-text-muted)' },
   heading:      { color: 'var(--color-text-primary)' },
   subtext:      { color: 'var(--color-text-secondary)', lineHeight: 1.6, maxWidth: '620px' },
 
