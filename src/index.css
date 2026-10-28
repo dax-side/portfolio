@@ -521,3 +521,12 @@ ul, ol {
     grid-template-columns: 1fr; /* MOBILE FIX */
   }
 }
+
+/* ─── Print ───────────────────────────────────────────── */
+/* Scroll-in animations never run on a printed page: show everything. */
+@media print {
+  * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
