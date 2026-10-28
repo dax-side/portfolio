@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { fadeUp } from '../lib/transitions'
 import Wave from './Wave'
+import WorkingHours from './WorkingHours'
 
 const CONTACT_LINKS = [
   {
@@ -64,6 +65,8 @@ export default function Contact() {
               Happy to talk architecture, tooling,
               or open-source work.
             </p>
+
+            <WorkingHours />
 
             <ul style={styles.links}>
               {CONTACT_LINKS.map(link => (
